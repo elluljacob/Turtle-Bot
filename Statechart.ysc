@@ -35,7 +35,7 @@
               <vertices xsi:type="sgraph:Entry" xmi:id="_1qdpMLsNEfCM--j4weeHRA">
                 <outgoingTransitions xmi:id="_noaCsLsYEfCKXtseUbKGZw" specification="" target="_V7mpwLsYEfCKXtseUbKGZw"/>
               </vertices>
-              <vertices xsi:type="sgraph:State" xmi:id="_V7mpwLsYEfCKXtseUbKGZw" specification="entry / raise stop" name="Stop" incomingTransitions="_noaCsLsYEfCKXtseUbKGZw">
+              <vertices xsi:type="sgraph:State" xmi:id="_V7mpwLsYEfCKXtseUbKGZw" specification="entry / raise stop" name="Stop2" incomingTransitions="_noaCsLsYEfCKXtseUbKGZw">
                 <outgoingTransitions xmi:id="_NeuvoLsOEfCM--j4weeHRA" specification="computer.w_press" target="_acsyALr6EfCTUPTQcCLr-g"/>
                 <outgoingTransitions xmi:id="_PacOYLsOEfCM--j4weeHRA" specification="computer.x_press" target="_PErNALr-EfCTUPTQcCLr-g"/>
                 <outgoingTransitions xmi:id="_R0MUALsOEfCM--j4weeHRA" specification="computer.d_press" target="_Z5sOwLr-EfCTUPTQcCLr-g"/>
