@@ -1,2 +1,2 @@
 # turtle-bot
-Code for duck the turtle bot
+Code for bastard
