@@ -22,6 +22,7 @@ from model import Model
 
 from TurtleBotNode import TurtleBot
 from grid.Grid import Maze
+from grid.operations import Callback
 
 from timer.sct_timer import Timer
 
@@ -43,6 +44,9 @@ class SCTConnect():
 
         # Initialize the statecharts
         self.sm = Model()
+
+        # setup callback
+        self.sm.operation_callback = Callback()
 
     """
     Setup the statemachine and the ROS 2 node
