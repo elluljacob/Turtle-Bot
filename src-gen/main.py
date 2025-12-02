@@ -44,9 +44,10 @@ class SCTConnect():
 
         # Initialize the statecharts
         self.sm = Model()
-
+        
         # setup callback
-        self.sm.operation_callback = Callback()
+        self.sm.internal_operation_callback = Callback()
+
 
     """
     Setup the statemachine and the ROS 2 node
@@ -109,7 +110,7 @@ class SCTConnect():
             # Publish the current speed and rotation from SCT
             # print("Velocity: ", self.sm.output.speed, self.sm.output.rotation)
             self.node.vel_publish(x=self.sm.output.speed, rz = self.sm.output.rotation)
-
+            os.system('clear')
             # Print info
             os.system('clear')
             print("========= TurtleBot Stats =========")
