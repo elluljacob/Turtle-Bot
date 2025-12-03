@@ -43,20 +43,14 @@ class Model:
 			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_east,
 			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_south,
 			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_north,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_idle,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_enter_cell,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_init_origin,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_update,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_north,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_south,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_west,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_east,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_receive,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_write_east_neighbour,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once,
+			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update,
 			main_region_robot_movement_control_state_________take_initial_yaw,
 			main_region_robot_mforward,
 			main_region_robot_mreverse,
@@ -96,7 +90,7 @@ class Model:
 			main_region_robot_mrotate_left_90r1wrap_negatve,
 			main_region_robot_mrotate_left_90r1bound_scale,
 			null_state
-		) = range(82)
+		) = range(76)
 	
 	
 	class UserVar:
@@ -379,12 +373,11 @@ class Model:
 		
 		self.__internal_event_queue = queue.Queue()
 		self.in_event_queue = queue.Queue()
-		self.__base_col = None
-		self.__base_row = None
-		self.__wn = None
-		self.__we = None
-		self.__ws = None
-		self.__ww = None
+		self.__is_turning = None
+		self.__visited_mask = None
+		self.__cell_idx = None
+		self.__cell_bit = None
+		self.__orientation = None
 		self.__origin_x = None
 		self.__origin_y = None
 		self.__origin_set = None
@@ -392,7 +385,6 @@ class Model:
 		self.__dy = None
 		self.__bx = None
 		self.__by = None
-		self.__last_orient = None
 		self.__tmp_col = None
 		self.__tmp_row = None
 		self.__new_col = None
@@ -425,12 +417,11 @@ class Model:
 		
 		# initializations:
 		#Default init sequence for statechart model
-		self.__base_col = 0
-		self.__base_row = 0
-		self.__wn = -(1)
-		self.__we = -(1)
-		self.__ws = -(1)
-		self.__ww = -(1)
+		self.__is_turning = False
+		self.__visited_mask = 0
+		self.__cell_idx = 0
+		self.__cell_bit = 0
+		self.__orientation = 0
 		self.__origin_x = 0.0
 		self.__origin_y = 0.0
 		self.__origin_set = False
@@ -438,7 +429,6 @@ class Model:
 		self.__dy = 0.0
 		self.__bx = 0.0
 		self.__by = 0.0
-		self.__last_orient = -(1)
 		self.__tmp_col = 0
 		self.__tmp_row = 0
 		self.__new_col = 0
@@ -585,7 +575,7 @@ class Model:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement:
 			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2)
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update)
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xbase_state:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xbase_state
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xrotate_left_90:
@@ -623,7 +613,7 @@ class Model:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking:
 			return (self.__state_vector[1] >= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking)\
-				and (self.__state_vector[1] <= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2)
+				and (self.__state_vector[1] <= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update)
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_west:
 			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_west
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_east:
@@ -632,34 +622,22 @@ class Model:
 			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_south
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_north:
 			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_north
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_idle:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_idle
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_enter_cell:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_enter_cell
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_init_origin:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_init_origin
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_update:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_update
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_north:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_north
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_south:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_south
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_west:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_west
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_east:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_east
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_receive:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_receive
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_write_east_neighbour:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_write_east_neighbour
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2:
-			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
+			return self.__state_vector[2] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update
 		if s == self.__State.main_region_robot_movement_control_state_________take_initial_yaw:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________take_initial_yaw
 		if s == self.__State.main_region_robot_mforward:
@@ -1016,34 +994,38 @@ class Model:
 		"""
 		#Entry action for state 'FacingWest'.
 		self.grid.orientation = 3
+		self.__is_turning = False
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_east(self):
 		"""Entry action for state 'FacingEast'..
 		"""
 		#Entry action for state 'FacingEast'.
 		self.grid.orientation = 1
+		self.__is_turning = False
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_south(self):
 		"""Entry action for state 'FacingSouth'..
 		"""
 		#Entry action for state 'FacingSouth'.
 		self.grid.orientation = 2
+		self.__is_turning = False
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_north(self):
 		"""Entry action for state 'FacingNorth'..
 		"""
 		#Entry action for state 'FacingNorth'.
 		self.grid.orientation = 0
+		self.__is_turning = False
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location(self):
 		"""Entry action for state 'CalculateLocation'..
 		"""
 		#Entry action for state 'CalculateLocation'.
 		self.timer_service.set_timer(self, 3, 1, False)
-		self.__dx = ((self.odom.x - self.__origin_x))
-		self.__dy = ((self.__origin_y - self.odom.y))
-		self.__bx = 0.02 if (self.__dx >= 0.0) else -(0.02)
-		self.__by = 0.02 if (self.__dy >= 0.0) else -(0.02)
+		self.__dx = ((self.__origin_y - self.odom.y))
+		self.__dy = ((self.odom.x - self.__origin_x))
+		self.__bx = 0.18 if (self.__dx >= 0.0) else -(0.18)
+		self.__by = 0.12 if (self.__dy >= 0.0) else -(0.12)
 		self.__tmp_col = self.internal_operation_callback.floor((((self.__dx + self.__bx)) / self.grid.grid_size))
 		self.__tmp_row = self.internal_operation_callback.floor((((self.__dy + self.__by)) / self.grid.grid_size))
 		self.__new_col = 0 if (self.__tmp_col < 0) else self.__tmp_col
@@ -1051,30 +1033,32 @@ class Model:
 		self.__new_col = (self.grid.max_col - 1) if (self.__new_col >= self.grid.max_col) else self.__new_col
 		self.__new_row = (self.grid.max_row - 1) if (self.__new_row >= self.grid.max_row) else self.__new_row
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle(self):
 		""".
 		"""
 		#Entry action for state 'Idle'.
 		self.grid.receive = False
 		self.grid.update = False
+		self.grid.column = self.grid.max_col
+		self.grid.row = (self.grid.max_row - 1)
 		self.__last_col = -(1)
 		self.__last_row = -(1)
-		self.grid.column = 0
-		self.grid.row = 0
+		self.grid.visited = False
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos(self):
 		""".
 		"""
-		#Entry action for state 'EnterCell'.
+		#Entry action for state 'EnterCellPos'.
 		self.grid.column = self.__new_col
 		self.grid.row = (((self.grid.max_row - 1)) - self.__new_row)
 		self.__last_col = self.__new_col
 		self.__last_row = self.__new_row
-		self.grid.receive = True
+		self.__cell_idx = ((self.grid.row * self.grid.max_col) + self.grid.column)
+		self.__cell_bit = (1 << self.__cell_idx)
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin(self):
 		"""Entry action for state 'InitOrigin'..
 		"""
 		#Entry action for state 'InitOrigin'.
@@ -1083,96 +1067,37 @@ class Model:
 		self.__origin_y = self.odom.y
 		self.__origin_set = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update(self):
-		"""Entry action for state 'WaitUpdate'..
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer(self):
+		"""Entry action for state 'Timer'..
 		"""
-		#Entry action for state 'WaitUpdate'.
-		self.timer_service.set_timer(self, 5, 50, False)
+		#Entry action for state 'Timer'.
+		self.timer_service.set_timer(self, 5, 100, False)
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited(self):
 		""".
 		"""
-		#Entry action for state 'Walls_North'.
+		#Entry action for state 'CommitVisited'.
+		self.grid.update = False
+		self.__visited_mask = (self.__visited_mask | self.__cell_bit)
+		self.__completed = True
+		
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once(self):
+		""".
+		"""
+		#Entry action for state 'WriteCellOnce'.
 		self.grid.wall_front = 1 if (self.laser_distance.dfront_mean < self.user_var.desired_dist) else 0
 		self.grid.wall_right = 1 if (self.laser_distance.dright_mean < self.user_var.desired_dist) else 0
 		self.grid.wall_back = 1 if (self.laser_distance.dback_mean < self.user_var.desired_dist) else 0
 		self.grid.wall_left = 1 if (self.laser_distance.dleft_mean < self.user_var.desired_dist) else 0
+		self.grid.visited = True
 		self.grid.update = True
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south(self):
-		""".
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update(self):
+		"""Entry action for state 'HoldUpdate'..
 		"""
-		#Entry action for state 'Walls_South'.
-		self.grid.wall_back = 1 if (self.laser_distance.dfront_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_left = 1 if (self.laser_distance.dright_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_front = 1 if (self.laser_distance.dback_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_right = 1 if (self.laser_distance.dleft_mean < self.user_var.desired_dist) else 0
-		self.grid.update = True
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west(self):
-		""".
-		"""
-		#Entry action for state 'Walls_West'.
-		self.grid.wall_left = 1 if (self.laser_distance.dfront_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_front = 1 if (self.laser_distance.dright_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_right = 1 if (self.laser_distance.dback_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_back = 1 if (self.laser_distance.dleft_mean < self.user_var.desired_dist) else 0
-		self.grid.update = True
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east(self):
-		""".
-		"""
-		#Entry action for state 'Walls_East'.
-		self.grid.wall_right = 1 if (self.laser_distance.dfront_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_back = 1 if (self.laser_distance.dright_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_left = 1 if (self.laser_distance.dback_mean < self.user_var.desired_dist) else 0
-		self.grid.wall_front = 1 if (self.laser_distance.dleft_mean < self.user_var.desired_dist) else 0
-		self.grid.update = True
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive(self):
-		"""Entry action for state 'WaitReceive'..
-		"""
-		#Entry action for state 'WaitReceive'.
-		self.timer_service.set_timer(self, 6, 50, False)
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self(self):
-		""".
-		"""
-		#Entry action for state 'StoreSelf'.
-		self.__base_col = self.grid.column
-		self.__base_row = self.grid.row
-		self.__wn = self.grid.wall_front
-		self.__we = self.grid.wall_right
-		self.__ws = self.grid.wall_back
-		self.__ww = self.grid.wall_left
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour(self):
-		""".
-		"""
-		#Entry action for state 'WriteEastNeighbour'.
-		self.grid.column = (self.__base_col + 1)
-		self.grid.row = self.__base_row
-		self.grid.wall_left = self.__we
-		self.grid.update = True
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue(self):
-		""".
-		"""
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2(self):
-		""".
-		"""
-		#Entry action for state 'RestoreSelf2'.
-		self.grid.column = self.__base_col
-		self.grid.row = self.__base_row
-		self.__completed = True
+		#Entry action for state 'HoldUpdate'.
+		self.timer_service.set_timer(self, 6, 100, False)
 		
 	def __entry_action_main_region_robot_movement_control_state__________take_initial_yaw(self):
 		""".
@@ -1244,6 +1169,7 @@ class Model:
 		#Entry action for state 'Stop'.
 		self.output.speed = 0.0
 		self.output.rotation = 0.0
+		self.__is_turning = False
 		
 	def __entry_action_main_region_robot_m_rotate_right_90_r1_start(self):
 		""".
@@ -1251,6 +1177,7 @@ class Model:
 		#Entry action for state 'Start'.
 		self.user_var.direction_facing = self.user_var.direction_facing + 1
 		self.user_var.scale = 0.0
+		self.__is_turning = True
 		self.__completed = True
 		
 	def __entry_action_main_region_robot_m_rotate_right_90_r1_wrap_direction(self):
@@ -1346,6 +1273,7 @@ class Model:
 		#Entry action for state 'Start'.
 		self.user_var.direction_facing = self.user_var.direction_facing - 1
 		self.user_var.scale = 0.0
+		self.__is_turning = True
 		self.__completed = True
 		
 	def __entry_action_main_region_robot_m_rotate_left_90_r1_wrap_direction(self):
@@ -1453,28 +1381,28 @@ class Model:
 		#Exit action for state 'Comp State M2'.
 		self.timer_service.unset_timer(self, 2)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location(self):
 		"""Exit action for state 'CalculateLocation'..
 		"""
 		#Exit action for state 'CalculateLocation'.
 		self.timer_service.unset_timer(self, 3)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin(self):
 		"""Exit action for state 'InitOrigin'..
 		"""
 		#Exit action for state 'InitOrigin'.
 		self.timer_service.unset_timer(self, 4)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update(self):
-		"""Exit action for state 'WaitUpdate'..
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer(self):
+		"""Exit action for state 'Timer'..
 		"""
-		#Exit action for state 'WaitUpdate'.
+		#Exit action for state 'Timer'.
 		self.timer_service.unset_timer(self, 5)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive(self):
-		"""Exit action for state 'WaitReceive'..
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update(self):
+		"""Exit action for state 'HoldUpdate'..
 		"""
-		#Exit action for state 'WaitReceive'.
+		#Exit action for state 'HoldUpdate'.
 		self.timer_service.unset_timer(self, 6)
 		
 	def __exit_action_main_region_robot_m_forward(self):
@@ -1771,7 +1699,7 @@ class Model:
 		"""
 		#'default' enter sequence for state Wall Tracking
 		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_default()
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__default()
 		
 	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_west_default(self):
 		"""'default' enter sequence for state FacingWest.
@@ -1809,93 +1737,57 @@ class Model:
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_default(self):
 		"""'default' enter sequence for state CalculateLocation.
 		"""
 		#'default' enter sequence for state CalculateLocation
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
+		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_default(self):
 		"""'default' enter sequence for state Idle.
 		"""
 		#'default' enter sequence for state Idle
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_idle
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle()
+		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell_default(self):
-		"""'default' enter sequence for state EnterCell.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_default(self):
+		"""'default' enter sequence for state EnterCellPos.
 		"""
-		#'default' enter sequence for state EnterCell
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_enter_cell
+		#'default' enter sequence for state EnterCellPos
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos()
+		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north_default(self):
-		"""'default' enter sequence for state Walls_North.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_default(self):
+		"""'default' enter sequence for state Timer.
 		"""
-		#'default' enter sequence for state Walls_North
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_north
+		#'default' enter sequence for state Timer
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
+		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south_default(self):
-		"""'default' enter sequence for state Walls_South.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_default(self):
+		"""'default' enter sequence for state CommitVisited.
 		"""
-		#'default' enter sequence for state Walls_South
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_south
+		#'default' enter sequence for state CommitVisited
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited()
+		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west_default(self):
-		"""'default' enter sequence for state Walls_West.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_default(self):
+		"""'default' enter sequence for state WriteCellOnce.
 		"""
-		#'default' enter sequence for state Walls_West
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_west
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east_default(self):
-		"""'default' enter sequence for state Walls_East.
-		"""
-		#'default' enter sequence for state Walls_East
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_east
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour_default(self):
-		"""'default' enter sequence for state WriteEastNeighbour.
-		"""
-		#'default' enter sequence for state WriteEastNeighbour
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_write_east_neighbour
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue_default(self):
-		"""'default' enter sequence for state RestoreAndContinue.
-		"""
-		#'default' enter sequence for state RestoreAndContinue
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2_default(self):
-		"""'default' enter sequence for state RestoreSelf2.
-		"""
-		#'default' enter sequence for state RestoreSelf2
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2()
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2
+		#'default' enter sequence for state WriteCellOnce
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once()
+		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
@@ -2277,11 +2169,11 @@ class Model:
 		#'default' enter sequence for region Compute Orientation
 		self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation__entry_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_default(self):
-		"""'default' enter sequence for region Detect Cell.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__default(self):
+		"""'default' enter sequence for region -cd .
 		"""
-		#'default' enter sequence for region Detect Cell
-		self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell__entry_default()
+		#'default' enter sequence for region -cd 
+		self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___entry_default()
 		
 	def __enter_sequence_main_region_robot_m_default(self):
 		"""'default' enter sequence for region m.
@@ -2501,107 +2393,65 @@ class Model:
 		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location(self):
 		"""Default exit sequence for state CalculateLocation.
 		"""
 		#Default exit sequence for state CalculateLocation
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle(self):
 		"""Default exit sequence for state Idle.
 		"""
 		#Default exit sequence for state Idle
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell(self):
-		"""Default exit sequence for state EnterCell.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos(self):
+		"""Default exit sequence for state EnterCellPos.
 		"""
-		#Default exit sequence for state EnterCell
+		#Default exit sequence for state EnterCellPos
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin(self):
 		"""Default exit sequence for state InitOrigin.
 		"""
 		#Default exit sequence for state InitOrigin
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update(self):
-		"""Default exit sequence for state WaitUpdate.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer(self):
+		"""Default exit sequence for state Timer.
 		"""
-		#Default exit sequence for state WaitUpdate
+		#Default exit sequence for state Timer
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north(self):
-		"""Default exit sequence for state Walls_North.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited(self):
+		"""Default exit sequence for state CommitVisited.
 		"""
-		#Default exit sequence for state Walls_North
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south(self):
-		"""Default exit sequence for state Walls_South.
-		"""
-		#Default exit sequence for state Walls_South
+		#Default exit sequence for state CommitVisited
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west(self):
-		"""Default exit sequence for state Walls_West.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once(self):
+		"""Default exit sequence for state WriteCellOnce.
 		"""
-		#Default exit sequence for state Walls_West
+		#Default exit sequence for state WriteCellOnce
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east(self):
-		"""Default exit sequence for state Walls_East.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update(self):
+		"""Default exit sequence for state HoldUpdate.
 		"""
-		#Default exit sequence for state Walls_East
+		#Default exit sequence for state HoldUpdate
 		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive(self):
-		"""Default exit sequence for state WaitReceive.
-		"""
-		#Default exit sequence for state WaitReceive
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive()
-		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self(self):
-		"""Default exit sequence for state StoreSelf.
-		"""
-		#Default exit sequence for state StoreSelf
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour(self):
-		"""Default exit sequence for state WriteEastNeighbour.
-		"""
-		#Default exit sequence for state WriteEastNeighbour
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue(self):
-		"""Default exit sequence for state RestoreAndContinue.
-		"""
-		#Default exit sequence for state RestoreAndContinue
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2(self):
-		"""Default exit sequence for state RestoreSelf2.
-		"""
-		#Default exit sequence for state RestoreSelf2
-		self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-		self.__state_conf_vector_position = 2
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
 		
 	def __exit_sequence_main_region_robot_movement_control_state__________take_initial_yaw(self):
 		"""Default exit sequence for state Take Initial Yaw.
@@ -2952,34 +2802,22 @@ class Model:
 		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_north:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_north()
 		state = self.__state_vector[2]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_idle:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_enter_cell:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_init_origin:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_update:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_north:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_south:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_west:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_east:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_receive:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_write_east_neighbour:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
 		state = self.__state_vector[3]
 		if state == self.State.main_region_robot_mforward:
 			self.__exit_sequence_main_region_robot_m_forward()
@@ -3158,34 +2996,22 @@ class Model:
 		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_compute_orientation_facing_north:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_north()
 		state = self.__state_vector[2]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_idle:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_enter_cell:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_init_origin:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_update:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_north:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_south:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_west:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_east:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_receive:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_write_east_neighbour:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
 		
 	def __exit_sequence_main_region_robot_m_rotate_right_90_r1(self):
 		"""Default exit sequence for region r1.
@@ -3288,27 +3114,14 @@ class Model:
 			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
 			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell__choice_0(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___choice_0(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.__new_col != self.__last_col or self.__new_row != self.__last_row:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_default()
 		else:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location_default()
-		
-	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell__choice_1(self):
-		"""The reactions of state null..
-		"""
-		#The reactions of state null.
-		if self.grid.orientation == 2:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south_default()
-		elif self.grid.orientation == 1:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east_default()
-		elif self.grid.orientation == 3:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west_default()
-		else:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_default()
 		
 	def __react_main_region_robot_m_rotate_right_90_r1__choice_1(self):
 		"""The reactions of state null..
@@ -3432,13 +3245,13 @@ class Model:
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_south_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_north_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell__entry_default(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___entry_default(self):
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_default()
 		
 	def __react_main_region_robot_movement_control_state__________auto_movement__region1__entry_default(self):
 		"""Default react sequence for initial entry .
@@ -3975,17 +3788,17 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_react function.
 		"""
 		#The reactions of state CalculateLocation.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 2:
 				if self.__time_events[3]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
 					self.__time_events[3] = False
-					self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell__choice_0()
+					self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___choice_0()
 					transitioned_after = 2
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
@@ -3994,8 +3807,8 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_react function.
 		"""
 		#The reactions of state Idle.
 		transitioned_after = transitioned_before
@@ -4004,8 +3817,8 @@ class Model:
 			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 			self.__state_conf_vector_position = 2
 			#'default' enter sequence for state InitOrigin
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_init_origin
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
+			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin
 			self.__state_conf_vector_position = 2
 			self.__state_conf_vector_changed = True
 			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
@@ -4015,38 +3828,37 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_react function.
 		"""
-		#The reactions of state EnterCell.
+		#The reactions of state EnterCellPos.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state EnterCell
+			#Default exit sequence for state EnterCellPos
 			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state WaitReceive
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_receive
-			self.__state_conf_vector_position = 2
-			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+			#The reactions of state null.
+			if ((self.__visited_mask & self.__cell_bit)) == 0 and not self.__is_turning:
+				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_default()
+			else:
+				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_default()
 		else:
 			#Always execute local reactions.
 			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin_react function.
 		"""
 		#The reactions of state InitOrigin.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 2:
 				if self.__time_events[4]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
 					self.__time_events[4] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location_default()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_default()
 					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
 					transitioned_after = 2
 			#If no transition was taken
@@ -4056,18 +3868,17 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_react function.
 		"""
-		#The reactions of state WaitUpdate.
+		#The reactions of state Timer.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 2:
 				if self.__time_events[5]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update()
-					self.grid.update = False
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
 					self.__time_events[5] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2_default()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_default()
 					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
 					transitioned_after = 2
 			#If no transition was taken
@@ -4077,18 +3888,18 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_react function.
 		"""
-		#The reactions of state Walls_North.
+		#The reactions of state CommitVisited.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state Walls_North
+			#Default exit sequence for state CommitVisited
 			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state StoreSelf
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self
+			#'default' enter sequence for state Timer
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
+			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer
 			self.__state_conf_vector_position = 2
 			self.__state_conf_vector_changed = True
 			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
@@ -4098,18 +3909,18 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_react function.
 		"""
-		#The reactions of state Walls_South.
+		#The reactions of state WriteCellOnce.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state Walls_South
+			#Default exit sequence for state WriteCellOnce
 			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
 			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state StoreSelf
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self
+			#'default' enter sequence for state HoldUpdate
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
+			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update
 			self.__state_conf_vector_position = 2
 			self.__state_conf_vector_changed = True
 			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
@@ -4119,148 +3930,23 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west_react function.
+	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update_react function.
 		"""
-		#The reactions of state Walls_West.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state Walls_West
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state StoreSelf
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self
-			self.__state_conf_vector_position = 2
-			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east_react function.
-		"""
-		#The reactions of state Walls_East.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state Walls_East
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state StoreSelf
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self
-			self.__state_conf_vector_position = 2
-			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive_react function.
-		"""
-		#The reactions of state WaitReceive.
+		#The reactions of state HoldUpdate.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 2:
 				if self.__time_events[6]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive()
-					self.grid.receive = False
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
 					self.__time_events[6] = False
-					self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell__choice_1()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_default()
+					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
 					transitioned_after = 2
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
 				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self_react function.
-		"""
-		#The reactions of state StoreSelf.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state StoreSelf
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-			self.__state_conf_vector_position = 2
-			#The reactions of state null.
-			if self.__base_col < (self.grid.max_col - 1):
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour_default()
-			else:
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue_default()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour_react function.
-		"""
-		#The reactions of state WriteEastNeighbour.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state WriteEastNeighbour
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state WaitUpdate
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_update
-			self.__state_conf_vector_position = 2
-			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue_react function.
-		"""
-		#The reactions of state RestoreAndContinue.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state RestoreAndContinue
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state CalculateLocation
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location
-			self.__state_conf_vector_position = 2
-			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2_react function.
-		"""
-		#The reactions of state RestoreSelf2.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state RestoreSelf2
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
-			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state RestoreAndContinue
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue()
-			self.__state_vector[2] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue
-			self.__state_conf_vector_position = 2
-			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -5179,34 +4865,22 @@ class Model:
 				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_compute_orientation_facing_north_react(transitioned)
 		if self.__state_conf_vector_position < 2:
 			state = self.__state_vector[2]
-			if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_calculate_location:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_calculate_location_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_idle:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_idle_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_enter_cell:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_enter_cell_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_init_origin:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_init_origin_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_update:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_update_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_north:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_north_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_south:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_south_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_west:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_west_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_walls_east:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_walls_east_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_wait_receive:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_wait_receive_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_store_self:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_store_self_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_write_east_neighbour:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_write_east_neighbour_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_and_continue:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_and_continue_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_detect_cell_restore_self2:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_detect_cell_restore_self2_react(transitioned)
+			if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update_react(transitioned)
 		if self.__state_conf_vector_position < 3:
 			state = self.__state_vector[3]
 			if state == self.State.main_region_robot_mforward:

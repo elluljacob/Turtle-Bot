@@ -7,7 +7,7 @@ GeneratorModel for create::python {
 	statechart model {
 
 		feature Outlet {
-			targetProject = PROJECT
+			targetProject = "TurtleBob"
 			targetFolder = FOLDER
 			libraryTargetFolder = "src"
 		}
