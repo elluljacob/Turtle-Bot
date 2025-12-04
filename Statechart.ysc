@@ -168,7 +168,7 @@
                     <outgoingTransitions xmi:id="_Dt8xINBOEfCgpuurwV34YA" specification="[!isTurning]" target="_CbiuENBOEfCgpuurwV34YA"/>
                   </vertices>
                   <vertices xsi:type="sgraph:State" xmi:id="_CbiuENBOEfCgpuurwV34YA" name="WaitStable" incomingTransitions="_Dt8xINBOEfCgpuurwV34YA">
-                    <outgoingTransitions xmi:id="_Gvz_oNBOEfCgpuurwV34YA" specification="after 750 ms" target="_YrRS4NA-EfCgpuurwV34YA"/>
+                    <outgoingTransitions xmi:id="_Gvz_oNBOEfCgpuurwV34YA" specification="after 1000 ms" target="_YrRS4NA-EfCgpuurwV34YA"/>
                   </vertices>
                 </regions>
               </vertices>
