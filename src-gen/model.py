@@ -16,39 +16,38 @@ class Model:
 		(
 			main_region_robot,
 			main_region_robot_movement_control_state_________manual_movement,
-			main_region_robot_movement_control_state_________manual_movement_inner_region_forward,
-			main_region_robot_movement_control_state_________manual_movement_inner_region_reverse,
-			main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_left,
-			main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_right,
-			main_region_robot_movement_control_state_________manual_movement_inner_region_stop,
+			main_region_robot_movement_control_state_________manual_movement_manual_movement_forward,
+			main_region_robot_movement_control_state_________manual_movement_manual_movement_reverse,
+			main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_left,
+			main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_right,
+			main_region_robot_movement_control_state_________manual_movement_manual_movement_stop,
 			main_region_robot_movement_control_state_________auto_movement,
-			main_region_robot_movement_control_state_________auto_movement_xbase_state,
-			main_region_robot_movement_control_state_________auto_movement_xrotate_left_90,
-			main_region_robot_movement_control_state_________auto_movement_xturn_right_90,
-			main_region_robot_movement_control_state_________auto_movement_xturn_right_90_1st,
-			main_region_robot_movement_control_state_________auto_movement_xturn_right_90_2nd,
-			main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1,
-			main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly,
-			main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2,
-			main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd,
-			main_region_robot_movement_control_state_________auto_movement_xallow__calibration_post_rotation,
-			main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust,
-			main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action,
-			main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_,
-			main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward,
-			main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left,
-			main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done,
-			main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_rotate_left_90,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_1st,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_2nd,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_allow__calibration_post_rotation,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left,
+			main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done,
+			main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable,
 			main_region_robot_movement_control_state_________take_initial_yaw,
 			main_region_robot_mforward,
 			main_region_robot_mreverse,
@@ -59,36 +58,27 @@ class Model:
 			main_region_robot_mrotate_left,
 			main_region_robot_mstop_rotating_left,
 			main_region_robot_mstop,
-			main_region_robot_mrotate_right_90,
-			main_region_robot_mrotate_right_90r1start,
-			main_region_robot_mrotate_right_90r1wrap_direction,
-			main_region_robot_mrotate_right_90r1exit,
-			main_region_robot_mrotate_right_90r1facing_north,
-			main_region_robot_mrotate_right_90r1facing_east,
-			main_region_robot_mrotate_right_90r1facing_south,
-			main_region_robot_mrotate_right_90r1facing_west,
-			main_region_robot_mrotate_right_90r1rotate_right,
-			main_region_robot_mrotate_right_90r1update_difference,
-			main_region_robot_mrotate_right_90r1wrap_difference,
-			main_region_robot_mrotate_right_90r1wrap_pos,
-			main_region_robot_mrotate_right_90r1wrap_negatve,
-			main_region_robot_mrotate_right_90r1bound_scale,
-			main_region_robot_mrotate_left_90,
-			main_region_robot_mrotate_left_90r1start,
-			main_region_robot_mrotate_left_90r1wrap_direction,
-			main_region_robot_mrotate_left_90r1exit,
-			main_region_robot_mrotate_left_90r1facing_north,
-			main_region_robot_mrotate_left_90r1facing_east,
-			main_region_robot_mrotate_left_90r1facing_south,
-			main_region_robot_mrotate_left_90r1rotate_left,
-			main_region_robot_mrotate_left_90r1update_difference,
-			main_region_robot_mrotate_left_90r1wrap_difference,
-			main_region_robot_mrotate_left_90r1facing_west,
-			main_region_robot_mrotate_left_90r1wrap_pos,
-			main_region_robot_mrotate_left_90r1wrap_negatve,
-			main_region_robot_mrotate_left_90r1bound_scale,
+			main_region_robot_mrotate_90_degrees,
+			main_region_robot_mrotate_90_degrees_inner_region_rotate_left_90,
+			main_region_robot_mrotate_90_degrees_inner_region_rotate_right_90,
+			main_region_robot_mrotate_90_degrees_inner_region_rotate_,
+			main_region_robot_mrotate_90_degrees_inner_region_update_difference,
+			main_region_robot_mrotate_90_degrees_inner_region_wrap_difference,
+			main_region_robot_mrotate_90_degrees_inner_region_start,
+			main_region_robot_mrotate_90_degrees_inner_region_bound_scale,
+			main_region_robot_mrotate_90_degrees_inner_region_exit,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_north,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_east,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_south,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_pos,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_negatve,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west,
+			main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing,
 			null_state
-		) = range(74)
+		) = range(64)
 	
 	
 	class UserVar:
@@ -102,6 +92,7 @@ class Model:
 			self.acceleration_duration = None
 			self.rotation_duration = None
 			self.min_distance = None
+			self.multiplier = None
 			self.start_yaw = None
 			self.target_yaw = None
 			self.error = None
@@ -401,18 +392,20 @@ class Model:
 		self.finished_reversing = None
 		self.rotate_right90 = None
 		self.rotate_left90 = None
+		self.calculate_direction = None
+		self.calculate_direction_finished = None
 		self.internal_operation_callback = None
 		
 		# enumeration of all states:
 		self.__State = Model.State
 		self.__state_conf_vector_changed = None
-		self.__state_vector = [None] * 3
-		for __state_index in range(3):
+		self.__state_vector = [None] * 4
+		for __state_index in range(4):
 			self.__state_vector[__state_index] = self.State.null_state
 		
 		# for timed statechart:
 		self.timer_service = None
-		self.__time_events = [None] * 26
+		self.__time_events = [None] * 17
 		
 		# initializations:
 		#Default init sequence for statechart model
@@ -441,6 +434,7 @@ class Model:
 		self.user_var.acceleration_duration = 500
 		self.user_var.rotation_duration = 50
 		self.user_var.min_distance = 0.3
+		self.user_var.multiplier = 1
 		self.user_var.start_yaw = 0.0
 		self.user_var.target_yaw = 0.0
 		self.user_var.error = 0.0
@@ -545,7 +539,7 @@ class Model:
 	def is_active(self):
 		"""Checks if the state machine is active.
 		"""
-		return self.__state_vector[0] is not self.__State.null_state or self.__state_vector[1] is not self.__State.null_state or self.__state_vector[2] is not self.__State.null_state
+		return self.__state_vector[0] is not self.__State.null_state or self.__state_vector[1] is not self.__State.null_state or self.__state_vector[2] is not self.__State.null_state or self.__state_vector[3] is not self.__State.null_state
 	
 	def is_final(self):
 		"""Checks if the statemachine is final.
@@ -559,81 +553,79 @@ class Model:
 		s = state
 		if s == self.__State.main_region_robot:
 			return (self.__state_vector[0] >= self.__State.main_region_robot)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_mrotate_left_90r1bound_scale)
+				and (self.__state_vector[0] <= self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing)
 		if s == self.__State.main_region_robot_movement_control_state_________manual_movement:
 			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________manual_movement)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop)
-		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_forward:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_forward
-		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_reverse:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_reverse
-		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_left:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_left
-		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_right:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_right
-		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_stop)
+		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_forward:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_forward
+		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_reverse:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_reverse
+		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_left:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_left
+		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_right:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_right
+		if s == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_stop:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________manual_movement_manual_movement_stop
 		if s == self.__State.main_region_robot_movement_control_state_________auto_movement:
 			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable)
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xbase_state:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xbase_state
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xrotate_left_90:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xrotate_left_90
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_1st:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_1st
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_2nd:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_2nd
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1:
-			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly)
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2:
-			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd)
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xallow__calibration_post_rotation:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xallow__calibration_post_rotation
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust:
-			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right)
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking:
-			return (self.__state_vector[1] >= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking)\
-				and (self.__state_vector[1] <= self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable)
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done
-		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable:
-			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable)
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_rotate_left_90:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_rotate_left_90
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_1st:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_1st
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_2nd:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_2nd
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left:
+			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left)\
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly)
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell:
+			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell)\
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd)
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_allow__calibration_post_rotation:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_allow__calibration_post_rotation
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust:
+			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust)\
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right)
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking:
+			return (self.__state_vector[1] >= self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking)\
+				and (self.__state_vector[1] <= self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable)
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done
+		if s == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable:
+			return self.__state_vector[1] == self.__State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable
 		if s == self.__State.main_region_robot_movement_control_state_________take_initial_yaw:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________take_initial_yaw
 		if s == self.__State.main_region_robot_mforward:
@@ -654,70 +646,51 @@ class Model:
 			return self.__state_vector[2] == self.__State.main_region_robot_mstop_rotating_left
 		if s == self.__State.main_region_robot_mstop:
 			return self.__state_vector[2] == self.__State.main_region_robot_mstop
-		if s == self.__State.main_region_robot_mrotate_right_90:
-			return (self.__state_vector[2] >= self.__State.main_region_robot_mrotate_right_90)\
-				and (self.__state_vector[2] <= self.__State.main_region_robot_mrotate_right_90r1bound_scale)
-		if s == self.__State.main_region_robot_mrotate_right_90r1start:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1start
-		if s == self.__State.main_region_robot_mrotate_right_90r1wrap_direction:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1wrap_direction
-		if s == self.__State.main_region_robot_mrotate_right_90r1exit:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1exit
-		if s == self.__State.main_region_robot_mrotate_right_90r1facing_north:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1facing_north
-		if s == self.__State.main_region_robot_mrotate_right_90r1facing_east:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1facing_east
-		if s == self.__State.main_region_robot_mrotate_right_90r1facing_south:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1facing_south
-		if s == self.__State.main_region_robot_mrotate_right_90r1facing_west:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1facing_west
-		if s == self.__State.main_region_robot_mrotate_right_90r1rotate_right:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1rotate_right
-		if s == self.__State.main_region_robot_mrotate_right_90r1update_difference:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1update_difference
-		if s == self.__State.main_region_robot_mrotate_right_90r1wrap_difference:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1wrap_difference
-		if s == self.__State.main_region_robot_mrotate_right_90r1wrap_pos:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1wrap_pos
-		if s == self.__State.main_region_robot_mrotate_right_90r1wrap_negatve:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1wrap_negatve
-		if s == self.__State.main_region_robot_mrotate_right_90r1bound_scale:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_right_90r1bound_scale
-		if s == self.__State.main_region_robot_mrotate_left_90:
-			return (self.__state_vector[2] >= self.__State.main_region_robot_mrotate_left_90)\
-				and (self.__state_vector[2] <= self.__State.main_region_robot_mrotate_left_90r1bound_scale)
-		if s == self.__State.main_region_robot_mrotate_left_90r1start:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1start
-		if s == self.__State.main_region_robot_mrotate_left_90r1wrap_direction:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1wrap_direction
-		if s == self.__State.main_region_robot_mrotate_left_90r1exit:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1exit
-		if s == self.__State.main_region_robot_mrotate_left_90r1facing_north:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1facing_north
-		if s == self.__State.main_region_robot_mrotate_left_90r1facing_east:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1facing_east
-		if s == self.__State.main_region_robot_mrotate_left_90r1facing_south:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1facing_south
-		if s == self.__State.main_region_robot_mrotate_left_90r1rotate_left:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1rotate_left
-		if s == self.__State.main_region_robot_mrotate_left_90r1update_difference:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1update_difference
-		if s == self.__State.main_region_robot_mrotate_left_90r1wrap_difference:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1wrap_difference
-		if s == self.__State.main_region_robot_mrotate_left_90r1facing_west:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1facing_west
-		if s == self.__State.main_region_robot_mrotate_left_90r1wrap_pos:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1wrap_pos
-		if s == self.__State.main_region_robot_mrotate_left_90r1wrap_negatve:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1wrap_negatve
-		if s == self.__State.main_region_robot_mrotate_left_90r1bound_scale:
-			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_left_90r1bound_scale
+		if s == self.__State.main_region_robot_mrotate_90_degrees:
+			return (self.__state_vector[2] >= self.__State.main_region_robot_mrotate_90_degrees)\
+				and (self.__state_vector[2] <= self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing)
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_rotate_left_90:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_rotate_left_90
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_rotate_right_90:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_rotate_right_90
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_rotate_:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_rotate_
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_update_difference:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_update_difference
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_wrap_difference:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_wrap_difference
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_start:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_start
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_bound_scale:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_bound_scale
+		if s == self.__State.main_region_robot_mrotate_90_degrees_inner_region_exit:
+			return self.__state_vector[2] == self.__State.main_region_robot_mrotate_90_degrees_inner_region_exit
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_north:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_north
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_east:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_east
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_south:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_south
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_pos:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_pos
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_negatve:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_negatve
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west
+		if s == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing:
+			return self.__state_vector[3] == self.__State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing
 		return False
 		
 	def time_elapsed(self, event_id):
 		"""Add time events to in event queue
 		"""
-		if event_id in range(26):
+		if event_id in range(17):
 			self.in_event_queue.put(lambda: self.raise_time_event(event_id))
 			self.run_cycle()
 	
@@ -847,51 +820,71 @@ class Model:
 		"""
 		self.rotate_left90 = True
 	
-	def __entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_forward(self):
+	def raise_calculate_direction(self):
+		"""Raise method for event calculate_direction.
+		"""
+		self.__internal_event_queue.put(self.__raise_calculate_direction_call)
+	
+	def __raise_calculate_direction_call(self):
+		"""Raise callback for event calculate_direction.
+		"""
+		self.calculate_direction = True
+	
+	def raise_calculate_direction_finished(self):
+		"""Raise method for event calculate_direction_finished.
+		"""
+		self.__internal_event_queue.put(self.__raise_calculate_direction_finished_call)
+	
+	def __raise_calculate_direction_finished_call(self):
+		"""Raise callback for event calculate_direction_finished.
+		"""
+		self.calculate_direction_finished = True
+	
+	def __entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward(self):
 		"""Entry action for state 'Forward'..
 		"""
 		#Entry action for state 'Forward'.
 		self.raise_forward()
 		
-	def __entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse(self):
+	def __entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse(self):
 		"""Entry action for state 'Reverse'..
 		"""
 		#Entry action for state 'Reverse'.
 		self.raise_reverse()
 		
-	def __entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left(self):
+	def __entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left(self):
 		"""Entry action for state 'Rotate left'..
 		"""
 		#Entry action for state 'Rotate left'.
 		self.raise_rotate_left()
 		
-	def __entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right(self):
+	def __entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right(self):
 		"""Entry action for state 'Rotate Right'..
 		"""
 		#Entry action for state 'Rotate Right'.
 		self.raise_rotate_right()
 		
-	def __entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_stop(self):
+	def __entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop(self):
 		"""Entry action for state 'Stop'..
 		"""
 		#Entry action for state 'Stop'.
 		self.raise_stop()
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_base_state(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state(self):
 		"""Entry action for state 'Base State'..
 		"""
 		#Entry action for state 'Base State'.
 		self.timer_service.set_timer(self, 0, 50, False)
 		self.raise_stop()
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90(self):
 		"""Entry action for state 'Rotate Left 90'..
 		"""
 		#Entry action for state 'Rotate Left 90'.
 		self.raise_stop()
 		self.raise_rotate_left90()
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90(self):
 		"""Entry action for state 'Turn Right 90'..
 		"""
 		#Entry action for state 'Turn Right 90'.
@@ -900,14 +893,14 @@ class Model:
 		self.user_var.last_action_turn_left = False
 		self.user_var.last_action_forward = False
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st(self):
 		"""Entry action for state 'Turn Right 90 1st'..
 		"""
 		#Entry action for state 'Turn Right 90 1st'.
 		self.raise_rotate_right90()
 		self.user_var.allow_calibration = False
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd(self):
 		"""Entry action for state 'Turn Right 90 2nd'..
 		"""
 		#Entry action for state 'Turn Right 90 2nd'.
@@ -915,26 +908,26 @@ class Model:
 		self.user_var.last_action_turn_left = False
 		self.user_var.last_action_forward = False
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1(self):
-		"""Entry action for state 'Comp State M1'..
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left(self):
+		"""Entry action for state 'If Last Action Wasn't turning Left'..
 		"""
-		#Entry action for state 'Comp State M1'.
+		#Entry action for state 'If Last Action Wasn't turning Left'.
 		self.timer_service.set_timer(self, 1, 650, False)
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly(self):
 		"""Entry action for state 'Move Forward Slightly'..
 		"""
 		#Entry action for state 'Move Forward Slightly'.
 		self.raise_forward()
 		self.user_var.allow_calibration = False
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2(self):
-		"""Entry action for state 'Comp State M2'..
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell(self):
+		"""Entry action for state 'Move Forward To Enter New Cell'..
 		"""
-		#Entry action for state 'Comp State M2'.
+		#Entry action for state 'Move Forward To Enter New Cell'.
 		self.timer_service.set_timer(self, 2, 2750, False)
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd(self):
 		"""Entry action for state 'Move Forward Slightly 2nd'..
 		"""
 		#Entry action for state 'Move Forward Slightly 2nd'.
@@ -942,26 +935,21 @@ class Model:
 		self.user_var.last_action_turn_left = True
 		self.user_var.last_action_forward = False
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation(self):
 		""".
 		"""
 		#Entry action for state 'Allow  Calibration Post Rotation'.
 		self.user_var.allow_calibration = True
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action(self):
 		""".
 		"""
 		#Entry action for state 'Check Last Action'.
 		self.raise_stop()
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust_(self):
-		""".
-		"""
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward(self):
 		"""Entry action for state 'Set prev and Forward'..
 		"""
 		#Entry action for state 'Set prev and Forward'.
@@ -971,21 +959,21 @@ class Model:
 		self.user_var.left_prev = self.laser_distance.dleft_mean
 		self.user_var.right_prev = self.laser_distance.dright_mean
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left(self):
 		""".
 		"""
 		#Entry action for state 'Going Too Far Left'.
 		self.output.rotation = (-(self.user_var.base_rotation) * 0.6)
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right(self):
 		""".
 		"""
 		#Entry action for state 'Going Too Far Right'.
 		self.output.rotation = (self.user_var.base_rotation * 0.6)
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location(self):
 		"""Entry action for state 'CalculateLocation'..
 		"""
 		#Entry action for state 'CalculateLocation'.
@@ -1001,7 +989,7 @@ class Model:
 		self.__new_col = (self.grid.max_col - 1) if (self.__new_col >= self.grid.max_col) else self.__new_col
 		self.__new_row = (self.grid.max_row - 1) if (self.__new_row >= self.grid.max_row) else self.__new_row
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle(self):
 		""".
 		"""
 		#Entry action for state 'Idle'.
@@ -1016,7 +1004,7 @@ class Model:
 		self.grid.visited = False
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos(self):
 		""".
 		"""
 		#Entry action for state 'EnterCellPos'.
@@ -1029,7 +1017,7 @@ class Model:
 		self.__cell_bit = (1 << self.__cell_idx)
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin(self):
 		"""Entry action for state 'InitOrigin'..
 		"""
 		#Entry action for state 'InitOrigin'.
@@ -1038,13 +1026,13 @@ class Model:
 		self.__origin_y = self.odom.y
 		self.__origin_set = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer(self):
 		"""Entry action for state 'Timer'..
 		"""
 		#Entry action for state 'Timer'.
 		self.timer_service.set_timer(self, 5, 100, False)
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited(self):
 		""".
 		"""
 		#Entry action for state 'CommitVisited'.
@@ -1052,7 +1040,7 @@ class Model:
 		self.__visited_mask = (self.__visited_mask | self.__cell_bit)
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once(self):
 		""".
 		"""
 		#Entry action for state 'WriteCellOnce'.
@@ -1064,13 +1052,13 @@ class Model:
 		self.grid.update = True
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update(self):
 		"""Entry action for state 'HoldUpdate'..
 		"""
 		#Entry action for state 'HoldUpdate'.
 		self.timer_service.set_timer(self, 6, 100, False)
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable(self):
+	def __entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable(self):
 		"""Entry action for state 'WaitStable'..
 		"""
 		#Entry action for state 'WaitStable'.
@@ -1147,243 +1135,182 @@ class Model:
 		self.output.speed = 0.0
 		self.output.rotation = 0.0
 		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_start(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90(self):
 		""".
+		"""
+		#Entry action for state 'Rotate Left 90'.
+		self.user_var.direction_facing = self.user_var.direction_facing - 1
+		self.user_var.multiplier = 1
+		self.__completed = True
+		
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90(self):
+		""".
+		"""
+		#Entry action for state 'Rotate Right 90'.
+		self.user_var.direction_facing = self.user_var.direction_facing + 1
+		self.user_var.multiplier = -(1)
+		self.__completed = True
+		
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_(self):
+		"""Entry action for state 'Rotate '..
+		"""
+		#Entry action for state 'Rotate '.
+		self.timer_service.set_timer(self, 12, 100, False)
+		self.output.rotation = ((self.user_var.base_rotation * self.user_var.scale) * self.user_var.multiplier)
+		self.__is_turning = True
+		
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_update_difference(self):
+		""".
+		"""
+		#Entry action for state 'Update Difference'.
+		self.output.rotation = 0.0
+		self.user_var.difference = (self.user_var.target_yaw - self.imu.yaw)
+		self.user_var.scale = (0.8 + (((((self.user_var.difference * (self.user_var.difference))) / 8100)) * 1.5))
+		self.__completed = True
+		
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference(self):
+		""".
+		"""
+		#Entry action for state 'Wrap Difference'.
+		self.user_var.difference = self.user_var.difference + 360
+		self.__completed = True
+		
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_start(self):
+		"""Entry action for state 'Start'..
 		"""
 		#Entry action for state 'Start'.
-		self.user_var.direction_facing = self.user_var.direction_facing + 1
 		self.user_var.scale = 0.0
-		self.__completed = True
+		self.raise_calculate_direction()
 		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_wrap_direction(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale(self):
 		""".
 		"""
-		#Entry action for state 'Wrap Direction'.
-		self.user_var.direction_facing = 0
+		#Entry action for state 'Bound Scale'.
+		self.user_var.scale = 1.5
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_exit(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_inner_region_exit(self):
 		""".
 		"""
 		#Entry action for state 'Exit'.
+		self.raise_finished_rot_left()
 		self.raise_finished_rot_right()
 		self.output.rotation = 0.0
 		self.__is_turning = False
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_facing_north(self):
-		"""Entry action for state 'Facing North'..
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction(self):
+		"""Entry action for state 'Calculate Direction'..
 		"""
-		#Entry action for state 'Facing North'.
-		self.timer_service.set_timer(self, 12, 50, False)
-		self.user_var.target_yaw = self.user_var.initial_yaw
+		#Entry action for state 'Calculate Direction'.
+		self.internal_operation_callback.debug_real(self.user_var.direction_facing)
 		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_facing_east(self):
-		"""Entry action for state 'Facing East'..
-		"""
-		#Entry action for state 'Facing East'.
-		self.timer_service.set_timer(self, 13, 50, False)
-		self.user_var.target_yaw = (self.user_var.initial_yaw - 90)
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_facing_south(self):
-		"""Entry action for state 'Facing South'..
-		"""
-		#Entry action for state 'Facing South'.
-		self.timer_service.set_timer(self, 14, 50, False)
-		self.user_var.target_yaw = (self.user_var.initial_yaw - 180)
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_facing_west(self):
-		"""Entry action for state 'Facing West'..
-		"""
-		#Entry action for state 'Facing West'.
-		self.timer_service.set_timer(self, 15, 50, False)
-		self.user_var.target_yaw = (self.user_var.initial_yaw + 90)
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_rotate_right(self):
-		"""Entry action for state 'Rotate Right'..
-		"""
-		#Entry action for state 'Rotate Right'.
-		self.timer_service.set_timer(self, 16, 100, False)
-		self.output.rotation = (-(self.user_var.base_rotation) * self.user_var.scale)
-		self.__is_turning = True
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_update_difference(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative(self):
 		""".
 		"""
-		#Entry action for state 'Update Difference'.
-		self.output.rotation = 0.0
-		self.user_var.difference = (self.user_var.target_yaw - self.imu.yaw)
-		self.user_var.scale = (0.8 + (((((self.user_var.difference * (self.user_var.difference))) / 8100)) * 1.5))
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_wrap_difference(self):
-		""".
-		"""
-		#Entry action for state 'Wrap Difference'.
-		self.user_var.difference = self.user_var.difference + 360
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_wrap_pos(self):
-		"""Entry action for state 'Wrap Pos'..
-		"""
-		#Entry action for state 'Wrap Pos'.
-		self.timer_service.set_timer(self, 17, 50, False)
-		self.user_var.target_yaw = self.user_var.target_yaw + 360
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_wrap_negatve(self):
-		"""Entry action for state 'Wrap Negatve'..
-		"""
-		#Entry action for state 'Wrap Negatve'.
-		self.timer_service.set_timer(self, 18, 50, False)
-		self.user_var.target_yaw = self.user_var.target_yaw - 360
-		
-	def __entry_action_main_region_robot_m_rotate_right_90_r1_bound_scale(self):
-		""".
-		"""
-		#Entry action for state 'Bound Scale'.
-		self.user_var.scale = 1.5
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_start(self):
-		""".
-		"""
-		#Entry action for state 'Start'.
-		self.user_var.direction_facing = self.user_var.direction_facing - 1
-		self.user_var.scale = 0.0
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_wrap_direction(self):
-		""".
-		"""
-		#Entry action for state 'Wrap Direction'.
+		#Entry action for state 'Wrap Direction If Negative'.
 		self.user_var.direction_facing = 3
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_exit(self):
-		""".
-		"""
-		#Entry action for state 'Exit'.
-		self.raise_finished_rot_left()
-		self.output.rotation = 0.0
-		self.__is_turning = False
-		self.__completed = True
-		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_facing_north(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north(self):
 		"""Entry action for state 'Facing North'..
 		"""
 		#Entry action for state 'Facing North'.
-		self.timer_service.set_timer(self, 19, 50, False)
+		self.timer_service.set_timer(self, 13, 50, False)
 		self.user_var.target_yaw = self.user_var.initial_yaw
 		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_facing_east(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east(self):
 		"""Entry action for state 'Facing East'..
 		"""
 		#Entry action for state 'Facing East'.
-		self.timer_service.set_timer(self, 20, 50, False)
+		self.timer_service.set_timer(self, 14, 50, False)
 		self.user_var.target_yaw = (self.user_var.initial_yaw - 90)
 		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_facing_south(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south(self):
 		"""Entry action for state 'Facing South'..
 		"""
 		#Entry action for state 'Facing South'.
-		self.timer_service.set_timer(self, 21, 50, False)
+		self.timer_service.set_timer(self, 15, 50, False)
 		self.user_var.target_yaw = (self.user_var.initial_yaw - 180)
 		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_rotate_left(self):
-		"""Entry action for state 'Rotate Left'..
-		"""
-		#Entry action for state 'Rotate Left'.
-		self.timer_service.set_timer(self, 22, 100, False)
-		self.output.rotation = (self.user_var.base_rotation * self.user_var.scale)
-		self.__is_turning = True
-		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_update_difference(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos(self):
 		""".
 		"""
-		#Entry action for state 'Update Difference'.
-		self.output.rotation = 0.0
-		self.user_var.difference = (self.user_var.target_yaw - self.imu.yaw)
-		self.user_var.scale = (0.8 + (((((self.user_var.difference * (self.user_var.difference))) / 8100)) * 1.5))
+		#Entry action for state 'Wrap Pos'.
+		self.user_var.target_yaw = self.user_var.target_yaw + 360
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_wrap_difference(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve(self):
 		""".
 		"""
-		#Entry action for state 'Wrap Difference'.
-		self.user_var.difference = self.user_var.difference + 360
+		#Entry action for state 'Wrap Negatve'.
+		self.user_var.target_yaw = self.user_var.target_yaw - 360
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_facing_west(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation(self):
+		""".
+		"""
+		#Entry action for state 'Finish Calculation'.
+		self.raise_calculate_direction_finished()
+		self.__completed = True
+		
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west(self):
 		"""Entry action for state 'Facing West'..
 		"""
 		#Entry action for state 'Facing West'.
-		self.timer_service.set_timer(self, 23, 50, False)
+		self.timer_service.set_timer(self, 16, 50, False)
 		self.user_var.target_yaw = (self.user_var.initial_yaw + 90)
 		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_wrap_pos(self):
-		"""Entry action for state 'Wrap Pos'..
-		"""
-		#Entry action for state 'Wrap Pos'.
-		self.timer_service.set_timer(self, 24, 50, False)
-		self.user_var.target_yaw = self.user_var.target_yaw + 360
-		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_wrap_negatve(self):
-		"""Entry action for state 'Wrap Negatve'..
-		"""
-		#Entry action for state 'Wrap Negatve'.
-		self.timer_service.set_timer(self, 25, 50, False)
-		self.user_var.target_yaw = self.user_var.target_yaw - 360
-		
-	def __entry_action_main_region_robot_m_rotate_left_90_r1_bound_scale(self):
+	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing(self):
 		""".
 		"""
-		#Entry action for state 'Bound Scale'.
-		self.user_var.scale = 1.5
+		#Entry action for state 'Wrap Direction Facing'.
+		self.user_var.direction_facing = 0
 		self.__completed = True
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement_x_base_state(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state(self):
 		"""Exit action for state 'Base State'..
 		"""
 		#Exit action for state 'Base State'.
 		self.timer_service.unset_timer(self, 0)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1(self):
-		"""Exit action for state 'Comp State M1'..
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left(self):
+		"""Exit action for state 'If Last Action Wasn't turning Left'..
 		"""
-		#Exit action for state 'Comp State M1'.
+		#Exit action for state 'If Last Action Wasn't turning Left'.
 		self.timer_service.unset_timer(self, 1)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2(self):
-		"""Exit action for state 'Comp State M2'..
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell(self):
+		"""Exit action for state 'Move Forward To Enter New Cell'..
 		"""
-		#Exit action for state 'Comp State M2'.
+		#Exit action for state 'Move Forward To Enter New Cell'.
 		self.timer_service.unset_timer(self, 2)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location(self):
 		"""Exit action for state 'CalculateLocation'..
 		"""
 		#Exit action for state 'CalculateLocation'.
 		self.timer_service.unset_timer(self, 3)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin(self):
 		"""Exit action for state 'InitOrigin'..
 		"""
 		#Exit action for state 'InitOrigin'.
 		self.timer_service.unset_timer(self, 4)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer(self):
 		"""Exit action for state 'Timer'..
 		"""
 		#Exit action for state 'Timer'.
 		self.timer_service.unset_timer(self, 5)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update(self):
 		"""Exit action for state 'HoldUpdate'..
 		"""
 		#Exit action for state 'HoldUpdate'.
 		self.timer_service.unset_timer(self, 6)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable(self):
+	def __exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable(self):
 		"""Exit action for state 'WaitStable'..
 		"""
 		#Exit action for state 'WaitStable'.
@@ -1413,89 +1340,35 @@ class Model:
 		#Exit action for state 'Rotate Left'.
 		self.timer_service.unset_timer(self, 11)
 		
-	def __exit_action_main_region_robot_m_rotate_right_90_r1_facing_north(self):
-		"""Exit action for state 'Facing North'..
+	def __exit_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_(self):
+		"""Exit action for state 'Rotate '..
 		"""
-		#Exit action for state 'Facing North'.
+		#Exit action for state 'Rotate '.
 		self.timer_service.unset_timer(self, 12)
 		
-	def __exit_action_main_region_robot_m_rotate_right_90_r1_facing_east(self):
-		"""Exit action for state 'Facing East'..
-		"""
-		#Exit action for state 'Facing East'.
-		self.timer_service.unset_timer(self, 13)
-		
-	def __exit_action_main_region_robot_m_rotate_right_90_r1_facing_south(self):
-		"""Exit action for state 'Facing South'..
-		"""
-		#Exit action for state 'Facing South'.
-		self.timer_service.unset_timer(self, 14)
-		
-	def __exit_action_main_region_robot_m_rotate_right_90_r1_facing_west(self):
-		"""Exit action for state 'Facing West'..
-		"""
-		#Exit action for state 'Facing West'.
-		self.timer_service.unset_timer(self, 15)
-		
-	def __exit_action_main_region_robot_m_rotate_right_90_r1_rotate_right(self):
-		"""Exit action for state 'Rotate Right'..
-		"""
-		#Exit action for state 'Rotate Right'.
-		self.timer_service.unset_timer(self, 16)
-		
-	def __exit_action_main_region_robot_m_rotate_right_90_r1_wrap_pos(self):
-		"""Exit action for state 'Wrap Pos'..
-		"""
-		#Exit action for state 'Wrap Pos'.
-		self.timer_service.unset_timer(self, 17)
-		
-	def __exit_action_main_region_robot_m_rotate_right_90_r1_wrap_negatve(self):
-		"""Exit action for state 'Wrap Negatve'..
-		"""
-		#Exit action for state 'Wrap Negatve'.
-		self.timer_service.unset_timer(self, 18)
-		
-	def __exit_action_main_region_robot_m_rotate_left_90_r1_facing_north(self):
+	def __exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north(self):
 		"""Exit action for state 'Facing North'..
 		"""
 		#Exit action for state 'Facing North'.
-		self.timer_service.unset_timer(self, 19)
+		self.timer_service.unset_timer(self, 13)
 		
-	def __exit_action_main_region_robot_m_rotate_left_90_r1_facing_east(self):
+	def __exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east(self):
 		"""Exit action for state 'Facing East'..
 		"""
 		#Exit action for state 'Facing East'.
-		self.timer_service.unset_timer(self, 20)
+		self.timer_service.unset_timer(self, 14)
 		
-	def __exit_action_main_region_robot_m_rotate_left_90_r1_facing_south(self):
+	def __exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south(self):
 		"""Exit action for state 'Facing South'..
 		"""
 		#Exit action for state 'Facing South'.
-		self.timer_service.unset_timer(self, 21)
+		self.timer_service.unset_timer(self, 15)
 		
-	def __exit_action_main_region_robot_m_rotate_left_90_r1_rotate_left(self):
-		"""Exit action for state 'Rotate Left'..
-		"""
-		#Exit action for state 'Rotate Left'.
-		self.timer_service.unset_timer(self, 22)
-		
-	def __exit_action_main_region_robot_m_rotate_left_90_r1_facing_west(self):
+	def __exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west(self):
 		"""Exit action for state 'Facing West'..
 		"""
 		#Exit action for state 'Facing West'.
-		self.timer_service.unset_timer(self, 23)
-		
-	def __exit_action_main_region_robot_m_rotate_left_90_r1_wrap_pos(self):
-		"""Exit action for state 'Wrap Pos'..
-		"""
-		#Exit action for state 'Wrap Pos'.
-		self.timer_service.unset_timer(self, 24)
-		
-	def __exit_action_main_region_robot_m_rotate_left_90_r1_wrap_negatve(self):
-		"""Exit action for state 'Wrap Negatve'..
-		"""
-		#Exit action for state 'Wrap Negatve'.
-		self.timer_service.unset_timer(self, 25)
+		self.timer_service.unset_timer(self, 16)
 		
 	def __enter_sequence_main_region_robot_default(self):
 		"""'default' enter sequence for state Robot.
@@ -1508,250 +1381,241 @@ class Model:
 		"""'default' enter sequence for state Manual Movement.
 		"""
 		#'default' enter sequence for state Manual Movement
-		self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_forward_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward_default(self):
 		"""'default' enter sequence for state Forward.
 		"""
 		#'default' enter sequence for state Forward
-		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_forward()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_forward
+		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_forward
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse_default(self):
 		"""'default' enter sequence for state Reverse.
 		"""
 		#'default' enter sequence for state Reverse
-		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_reverse
+		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_reverse
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left_default(self):
 		"""'default' enter sequence for state Rotate left.
 		"""
 		#'default' enter sequence for state Rotate left
-		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_left
+		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_left
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right_default(self):
 		"""'default' enter sequence for state Rotate Right.
 		"""
 		#'default' enter sequence for state Rotate Right
-		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_right
+		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_right
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop_default(self):
 		"""'default' enter sequence for state Stop.
 		"""
 		#'default' enter sequence for state Stop
-		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_inner_region_stop()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop
+		self.__entry_action_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_stop
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_base_state_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state_default(self):
 		"""'default' enter sequence for state Base State.
 		"""
 		#'default' enter sequence for state Base State
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_base_state()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xbase_state
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90_default(self):
 		"""'default' enter sequence for state Rotate Left 90.
 		"""
 		#'default' enter sequence for state Rotate Left 90
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xrotate_left_90
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_rotate_left_90
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_default(self):
 		"""'default' enter sequence for state Turn Right 90.
 		"""
 		#'default' enter sequence for state Turn Right 90
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st_default(self):
 		"""'default' enter sequence for state Turn Right 90 1st.
 		"""
 		#'default' enter sequence for state Turn Right 90 1st
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_1st
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_1st
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd_default(self):
 		"""'default' enter sequence for state Turn Right 90 2nd.
 		"""
 		#'default' enter sequence for state Turn Right 90 2nd
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_2nd
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_2nd
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly_default(self):
 		"""'default' enter sequence for state Move Forward Slightly.
 		"""
 		#'default' enter sequence for state Move Forward Slightly
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd_default(self):
 		"""'default' enter sequence for state Move Forward Slightly 2nd.
 		"""
 		#'default' enter sequence for state Move Forward Slightly 2nd
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation_default(self):
 		"""'default' enter sequence for state Allow  Calibration Post Rotation.
 		"""
 		#'default' enter sequence for state Allow  Calibration Post Rotation
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xallow__calibration_post_rotation
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_allow__calibration_post_rotation
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_default(self):
 		"""'default' enter sequence for state Move Forward and Adjust.
 		"""
 		#'default' enter sequence for state Move Forward and Adjust
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action_default(self):
 		"""'default' enter sequence for state Check Last Action.
 		"""
 		#'default' enter sequence for state Check Last Action
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust__default(self):
-		"""'default' enter sequence for state Adjust?.
-		"""
-		#'default' enter sequence for state Adjust?
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust_()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_
-		self.__state_conf_vector_position = 0
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward_default(self):
 		"""'default' enter sequence for state Set prev and Forward.
 		"""
 		#'default' enter sequence for state Set prev and Forward
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left_default(self):
 		"""'default' enter sequence for state Going Too Far Left.
 		"""
 		#'default' enter sequence for state Going Too Far Left
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right_default(self):
 		"""'default' enter sequence for state Going Too Far Right.
 		"""
 		#'default' enter sequence for state Going Too Far Right
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_default(self):
 		"""'default' enter sequence for state Wall Tracking.
 		"""
 		#'default' enter sequence for state Wall Tracking
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location_default(self):
 		"""'default' enter sequence for state CalculateLocation.
 		"""
 		#'default' enter sequence for state CalculateLocation
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location()
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle_default(self):
 		"""'default' enter sequence for state Idle.
 		"""
 		#'default' enter sequence for state Idle
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle()
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle()
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos_default(self):
 		"""'default' enter sequence for state EnterCellPos.
 		"""
 		#'default' enter sequence for state EnterCellPos
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos()
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos()
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer_default(self):
 		"""'default' enter sequence for state Timer.
 		"""
 		#'default' enter sequence for state Timer
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer()
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited_default(self):
 		"""'default' enter sequence for state CommitVisited.
 		"""
 		#'default' enter sequence for state CommitVisited
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited()
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited()
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once_default(self):
 		"""'default' enter sequence for state WriteCellOnce.
 		"""
 		#'default' enter sequence for state WriteCellOnce
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once()
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once()
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done_default(self):
 		"""'default' enter sequence for state WaitTurnDone.
 		"""
 		#'default' enter sequence for state WaitTurnDone
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable_default(self):
 		"""'default' enter sequence for state WaitStable.
 		"""
 		#'default' enter sequence for state WaitStable
-		self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable()
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable
+		self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable()
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable
 		self.__state_conf_vector_position = 1
 		self.__state_conf_vector_changed = True
 		
@@ -1845,250 +1709,157 @@ class Model:
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_default(self):
-		"""'default' enter sequence for state Rotate Right 90.
-		"""
-		#'default' enter sequence for state Rotate Right 90
-		self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_default()
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_start_default(self):
-		"""'default' enter sequence for state Start.
-		"""
-		#'default' enter sequence for state Start
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_start()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1start
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_direction_default(self):
-		"""'default' enter sequence for state Wrap Direction.
-		"""
-		#'default' enter sequence for state Wrap Direction
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_wrap_direction()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1wrap_direction
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_exit_default(self):
-		"""'default' enter sequence for state Exit.
-		"""
-		#'default' enter sequence for state Exit
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_exit()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1exit
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_north_default(self):
-		"""'default' enter sequence for state Facing North.
-		"""
-		#'default' enter sequence for state Facing North
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_facing_north()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1facing_north
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_east_default(self):
-		"""'default' enter sequence for state Facing East.
-		"""
-		#'default' enter sequence for state Facing East
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_facing_east()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1facing_east
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_south_default(self):
-		"""'default' enter sequence for state Facing South.
-		"""
-		#'default' enter sequence for state Facing South
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_facing_south()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1facing_south
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_west_default(self):
-		"""'default' enter sequence for state Facing West.
-		"""
-		#'default' enter sequence for state Facing West
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_facing_west()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1facing_west
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right_default(self):
-		"""'default' enter sequence for state Rotate Right.
-		"""
-		#'default' enter sequence for state Rotate Right
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_rotate_right()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1rotate_right
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_update_difference_default(self):
-		"""'default' enter sequence for state Update Difference.
-		"""
-		#'default' enter sequence for state Update Difference
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_update_difference()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1update_difference
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_difference_default(self):
-		"""'default' enter sequence for state Wrap Difference.
-		"""
-		#'default' enter sequence for state Wrap Difference
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_wrap_difference()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1wrap_difference
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_pos_default(self):
-		"""'default' enter sequence for state Wrap Pos.
-		"""
-		#'default' enter sequence for state Wrap Pos
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_wrap_pos()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1wrap_pos
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_negatve_default(self):
-		"""'default' enter sequence for state Wrap Negatve.
-		"""
-		#'default' enter sequence for state Wrap Negatve
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_wrap_negatve()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1wrap_negatve
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_bound_scale_default(self):
-		"""'default' enter sequence for state Bound Scale.
-		"""
-		#'default' enter sequence for state Bound Scale
-		self.__entry_action_main_region_robot_m_rotate_right_90_r1_bound_scale()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90r1bound_scale
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_default(self):
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90_default(self):
 		"""'default' enter sequence for state Rotate Left 90.
 		"""
 		#'default' enter sequence for state Rotate Left 90
-		self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_default()
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_start_default(self):
-		"""'default' enter sequence for state Start.
-		"""
-		#'default' enter sequence for state Start
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_start()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1start
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90()
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_left_90
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_direction_default(self):
-		"""'default' enter sequence for state Wrap Direction.
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90_default(self):
+		"""'default' enter sequence for state Rotate Right 90.
 		"""
-		#'default' enter sequence for state Wrap Direction
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_wrap_direction()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1wrap_direction
+		#'default' enter sequence for state Rotate Right 90
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90()
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_right_90
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_exit_default(self):
-		"""'default' enter sequence for state Exit.
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate__default(self):
+		"""'default' enter sequence for state Rotate .
 		"""
-		#'default' enter sequence for state Exit
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_exit()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1exit
+		#'default' enter sequence for state Rotate 
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_()
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_north_default(self):
-		"""'default' enter sequence for state Facing North.
-		"""
-		#'default' enter sequence for state Facing North
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_facing_north()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1facing_north
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_east_default(self):
-		"""'default' enter sequence for state Facing East.
-		"""
-		#'default' enter sequence for state Facing East
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_facing_east()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1facing_east
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_south_default(self):
-		"""'default' enter sequence for state Facing South.
-		"""
-		#'default' enter sequence for state Facing South
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_facing_south()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1facing_south
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left_default(self):
-		"""'default' enter sequence for state Rotate Left.
-		"""
-		#'default' enter sequence for state Rotate Left
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_rotate_left()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1rotate_left
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_update_difference_default(self):
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_update_difference_default(self):
 		"""'default' enter sequence for state Update Difference.
 		"""
 		#'default' enter sequence for state Update Difference
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_update_difference()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1update_difference
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_update_difference()
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_update_difference
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_difference_default(self):
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference_default(self):
 		"""'default' enter sequence for state Wrap Difference.
 		"""
 		#'default' enter sequence for state Wrap Difference
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_wrap_difference()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1wrap_difference
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference()
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_wrap_difference
 		self.__state_conf_vector_position = 2
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_west_default(self):
-		"""'default' enter sequence for state Facing West.
-		"""
-		#'default' enter sequence for state Facing West
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_facing_west()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1facing_west
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_pos_default(self):
-		"""'default' enter sequence for state Wrap Pos.
-		"""
-		#'default' enter sequence for state Wrap Pos
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_wrap_pos()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1wrap_pos
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_negatve_default(self):
-		"""'default' enter sequence for state Wrap Negatve.
-		"""
-		#'default' enter sequence for state Wrap Negatve
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_wrap_negatve()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1wrap_negatve
-		self.__state_conf_vector_position = 2
-		self.__state_conf_vector_changed = True
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_bound_scale_default(self):
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale_default(self):
 		"""'default' enter sequence for state Bound Scale.
 		"""
 		#'default' enter sequence for state Bound Scale
-		self.__entry_action_main_region_robot_m_rotate_left_90_r1_bound_scale()
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90r1bound_scale
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale()
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_bound_scale
 		self.__state_conf_vector_position = 2
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_exit_default(self):
+		"""'default' enter sequence for state Exit.
+		"""
+		#'default' enter sequence for state Exit
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_exit()
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_exit
+		self.__state_conf_vector_position = 2
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction_default(self):
+		"""'default' enter sequence for state Calculate Direction.
+		"""
+		#'default' enter sequence for state Calculate Direction
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative_default(self):
+		"""'default' enter sequence for state Wrap Direction If Negative.
+		"""
+		#'default' enter sequence for state Wrap Direction If Negative
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north_default(self):
+		"""'default' enter sequence for state Facing North.
+		"""
+		#'default' enter sequence for state Facing North
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_north
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east_default(self):
+		"""'default' enter sequence for state Facing East.
+		"""
+		#'default' enter sequence for state Facing East
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_east
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south_default(self):
+		"""'default' enter sequence for state Facing South.
+		"""
+		#'default' enter sequence for state Facing South
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_south
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos_default(self):
+		"""'default' enter sequence for state Wrap Pos.
+		"""
+		#'default' enter sequence for state Wrap Pos
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_pos
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve_default(self):
+		"""'default' enter sequence for state Wrap Negatve.
+		"""
+		#'default' enter sequence for state Wrap Negatve
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_negatve
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation_default(self):
+		"""'default' enter sequence for state Finish Calculation.
+		"""
+		#'default' enter sequence for state Finish Calculation
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west_default(self):
+		"""'default' enter sequence for state Facing West.
+		"""
+		#'default' enter sequence for state Facing West
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west
+		self.__state_conf_vector_position = 3
+		self.__state_conf_vector_changed = True
+		
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing_default(self):
+		"""'default' enter sequence for state Wrap Direction Facing.
+		"""
+		#'default' enter sequence for state Wrap Direction Facing
+		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing()
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing
+		self.__state_conf_vector_position = 3
 		self.__state_conf_vector_changed = True
 		
 	def __enter_sequence_main_region_default(self):
@@ -2103,35 +1874,35 @@ class Model:
 		#'default' enter sequence for region Movement Control State         
 		self.__react_main_region_robot_movement_control_state___________entry_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_default(self):
-		"""'default' enter sequence for region inner region.
+	def __enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_default(self):
+		"""'default' enter sequence for region Manual Movement.
 		"""
-		#'default' enter sequence for region inner region
-		self.__react_main_region_robot_movement_control_state__________manual_movement_inner_region__entry_default()
+		#'default' enter sequence for region Manual Movement
+		self.__react_main_region_robot_movement_control_state__________manual_movement_manual_movement__entry_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_default(self):
-		"""'default' enter sequence for region x.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_default(self):
+		"""'default' enter sequence for region Auto Movement.
 		"""
-		#'default' enter sequence for region x
-		self.__react_main_region_robot_movement_control_state__________auto_movement_x__entry_default()
+		#'default' enter sequence for region Auto Movement
+		self.__react_main_region_robot_movement_control_state__________auto_movement_auto_movement__entry_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_default(self):
 		"""'default' enter sequence for region r1.
 		"""
 		#'default' enter sequence for region r1
-		self.__react_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1__entry_default()
+		self.__react_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1__entry_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_default(self):
-		"""'default' enter sequence for region null.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_default(self):
+		"""'default' enter sequence for region Wall Tracking.
 		"""
-		#'default' enter sequence for region null
-		self.__react_main_region_robot_movement_control_state__________auto_movement__region1__entry_default()
+		#'default' enter sequence for region Wall Tracking
+		self.__react_main_region_robot_movement_control_state__________auto_movement_wall_tracking__entry_default()
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__default(self):
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__default(self):
 		"""'default' enter sequence for region -cd .
 		"""
 		#'default' enter sequence for region -cd 
-		self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___entry_default()
+		self.__react_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd___entry_default()
 		
 	def __enter_sequence_main_region_robot_m_default(self):
 		"""'default' enter sequence for region m.
@@ -2139,55 +1910,49 @@ class Model:
 		#'default' enter sequence for region m
 		self.__react_main_region_robot_m__entry_default()
 		
-	def __enter_sequence_main_region_robot_m_rotate_right_90_r1_default(self):
-		"""'default' enter sequence for region r1.
+	def __enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_default(self):
+		"""'default' enter sequence for region Calculate Direction Facing.
 		"""
-		#'default' enter sequence for region r1
-		self.__react_main_region_robot_m_rotate_right_90_r1__entry_default()
-		
-	def __enter_sequence_main_region_robot_m_rotate_left_90_r1_default(self):
-		"""'default' enter sequence for region r1.
-		"""
-		#'default' enter sequence for region r1
-		self.__react_main_region_robot_m_rotate_left_90_r1__entry_default()
+		#'default' enter sequence for region Calculate Direction Facing
+		self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__entry_default()
 		
 	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement(self):
 		"""Default exit sequence for state Manual Movement.
 		"""
 		#Default exit sequence for state Manual Movement
-		self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region()
+		self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement()
 		self.__state_vector[0] = self.State.main_region_robot
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_forward(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward(self):
 		"""Default exit sequence for state Forward.
 		"""
 		#Default exit sequence for state Forward
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse(self):
 		"""Default exit sequence for state Reverse.
 		"""
 		#Default exit sequence for state Reverse
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left(self):
 		"""Default exit sequence for state Rotate left.
 		"""
 		#Default exit sequence for state Rotate left
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right(self):
 		"""Default exit sequence for state Rotate Right.
 		"""
 		#Default exit sequence for state Rotate Right
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________manual_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop(self):
 		"""Default exit sequence for state Stop.
 		"""
 		#Default exit sequence for state Stop
@@ -2198,212 +1963,205 @@ class Model:
 		"""Default exit sequence for state Auto Movement.
 		"""
 		#Default exit sequence for state Auto Movement
-		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x()
-		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1()
+		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement()
+		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking()
 		self.__state_vector[0] = self.State.main_region_robot
 		self.__state_vector[1] = self.State.main_region_robot
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_base_state(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state(self):
 		"""Default exit sequence for state Base State.
 		"""
 		#Default exit sequence for state Base State
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_x_base_state()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90(self):
 		"""Default exit sequence for state Rotate Left 90.
 		"""
 		#Default exit sequence for state Rotate Left 90
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90(self):
 		"""Default exit sequence for state Turn Right 90.
 		"""
 		#Default exit sequence for state Turn Right 90
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st(self):
 		"""Default exit sequence for state Turn Right 90 1st.
 		"""
 		#Default exit sequence for state Turn Right 90 1st
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd(self):
 		"""Default exit sequence for state Turn Right 90 2nd.
 		"""
 		#Default exit sequence for state Turn Right 90 2nd
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1(self):
-		"""Default exit sequence for state Comp State M1.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left(self):
+		"""Default exit sequence for state If Last Action Wasn't turning Left.
 		"""
-		#Default exit sequence for state Comp State M1
-		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1()
+		#Default exit sequence for state If Last Action Wasn't turning Left
+		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1()
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly(self):
 		"""Default exit sequence for state Move Forward Slightly.
 		"""
 		#Default exit sequence for state Move Forward Slightly
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2(self):
-		"""Default exit sequence for state Comp State M2.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell(self):
+		"""Default exit sequence for state Move Forward To Enter New Cell.
 		"""
-		#Default exit sequence for state Comp State M2
-		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1()
+		#Default exit sequence for state Move Forward To Enter New Cell
+		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1()
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd(self):
 		"""Default exit sequence for state Move Forward Slightly 2nd.
 		"""
 		#Default exit sequence for state Move Forward Slightly 2nd
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation(self):
 		"""Default exit sequence for state Allow  Calibration Post Rotation.
 		"""
 		#Default exit sequence for state Allow  Calibration Post Rotation
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust(self):
 		"""Default exit sequence for state Move Forward and Adjust.
 		"""
 		#Default exit sequence for state Move Forward and Adjust
-		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1()
+		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1()
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action(self):
 		"""Default exit sequence for state Check Last Action.
 		"""
 		#Default exit sequence for state Check Last Action
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust_(self):
-		"""Default exit sequence for state Adjust?.
-		"""
-		#Default exit sequence for state Adjust?
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
-		self.__state_conf_vector_position = 0
-		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward(self):
 		"""Default exit sequence for state Set prev and Forward.
 		"""
 		#Default exit sequence for state Set prev and Forward
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left(self):
 		"""Default exit sequence for state Going Too Far Left.
 		"""
 		#Default exit sequence for state Going Too Far Left
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right(self):
 		"""Default exit sequence for state Going Too Far Right.
 		"""
 		#Default exit sequence for state Going Too Far Right
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking(self):
 		"""Default exit sequence for state Wall Tracking.
 		"""
 		#Default exit sequence for state Wall Tracking
-		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd_()
+		self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd_()
 		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location(self):
 		"""Default exit sequence for state CalculateLocation.
 		"""
 		#Default exit sequence for state CalculateLocation
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle(self):
 		"""Default exit sequence for state Idle.
 		"""
 		#Default exit sequence for state Idle
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos(self):
 		"""Default exit sequence for state EnterCellPos.
 		"""
 		#Default exit sequence for state EnterCellPos
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin(self):
 		"""Default exit sequence for state InitOrigin.
 		"""
 		#Default exit sequence for state InitOrigin
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer(self):
 		"""Default exit sequence for state Timer.
 		"""
 		#Default exit sequence for state Timer
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited(self):
 		"""Default exit sequence for state CommitVisited.
 		"""
 		#Default exit sequence for state CommitVisited
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once(self):
 		"""Default exit sequence for state WriteCellOnce.
 		"""
 		#Default exit sequence for state WriteCellOnce
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update(self):
 		"""Default exit sequence for state HoldUpdate.
 		"""
 		#Default exit sequence for state HoldUpdate
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done(self):
 		"""Default exit sequence for state WaitTurnDone.
 		"""
 		#Default exit sequence for state WaitTurnDone
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable(self):
 		"""Default exit sequence for state WaitStable.
 		"""
 		#Default exit sequence for state WaitStable
-		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+		self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 		self.__state_conf_vector_position = 1
-		self.__exit_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable()
+		self.__exit_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable()
 		
 	def __exit_sequence_main_region_robot_movement_control_state__________take_initial_yaw(self):
 		"""Default exit sequence for state Take Initial Yaw.
@@ -2479,217 +2237,146 @@ class Model:
 		self.__state_vector[2] = self.State.main_region_robot
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_m_rotate_right_90(self):
-		"""Default exit sequence for state Rotate Right 90.
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees(self):
+		"""Default exit sequence for state Rotate 90 Degrees.
 		"""
-		#Default exit sequence for state Rotate Right 90
-		self.__exit_sequence_main_region_robot_m_rotate_right_90_r1()
+		#Default exit sequence for state Rotate 90 Degrees
+		self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region()
+		self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing()
 		self.__state_vector[2] = self.State.main_region_robot
-		self.__state_conf_vector_position = 2
+		self.__state_vector[3] = self.State.main_region_robot
+		self.__state_conf_vector_position = 3
 		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_start(self):
-		"""Default exit sequence for state Start.
-		"""
-		#Default exit sequence for state Start
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_direction(self):
-		"""Default exit sequence for state Wrap Direction.
-		"""
-		#Default exit sequence for state Wrap Direction
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_exit(self):
-		"""Default exit sequence for state Exit.
-		"""
-		#Default exit sequence for state Exit
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_north(self):
-		"""Default exit sequence for state Facing North.
-		"""
-		#Default exit sequence for state Facing North
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_right_90_r1_facing_north()
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_east(self):
-		"""Default exit sequence for state Facing East.
-		"""
-		#Default exit sequence for state Facing East
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_right_90_r1_facing_east()
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_south(self):
-		"""Default exit sequence for state Facing South.
-		"""
-		#Default exit sequence for state Facing South
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_right_90_r1_facing_south()
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_west(self):
-		"""Default exit sequence for state Facing West.
-		"""
-		#Default exit sequence for state Facing West
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_right_90_r1_facing_west()
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right(self):
-		"""Default exit sequence for state Rotate Right.
-		"""
-		#Default exit sequence for state Rotate Right
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_right_90_r1_rotate_right()
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_update_difference(self):
-		"""Default exit sequence for state Update Difference.
-		"""
-		#Default exit sequence for state Update Difference
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_difference(self):
-		"""Default exit sequence for state Wrap Difference.
-		"""
-		#Default exit sequence for state Wrap Difference
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_pos(self):
-		"""Default exit sequence for state Wrap Pos.
-		"""
-		#Default exit sequence for state Wrap Pos
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_right_90_r1_wrap_pos()
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_negatve(self):
-		"""Default exit sequence for state Wrap Negatve.
-		"""
-		#Default exit sequence for state Wrap Negatve
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_right_90_r1_wrap_negatve()
-		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1_bound_scale(self):
-		"""Default exit sequence for state Bound Scale.
-		"""
-		#Default exit sequence for state Bound Scale
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90(self):
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90(self):
 		"""Default exit sequence for state Rotate Left 90.
 		"""
 		#Default exit sequence for state Rotate Left 90
-		self.__exit_sequence_main_region_robot_m_rotate_left_90_r1()
-		self.__state_vector[2] = self.State.main_region_robot
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_start(self):
-		"""Default exit sequence for state Start.
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90(self):
+		"""Default exit sequence for state Rotate Right 90.
 		"""
-		#Default exit sequence for state Start
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
+		#Default exit sequence for state Rotate Right 90
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_direction(self):
-		"""Default exit sequence for state Wrap Direction.
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_(self):
+		"""Default exit sequence for state Rotate .
 		"""
-		#Default exit sequence for state Wrap Direction
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
+		#Default exit sequence for state Rotate 
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 		self.__state_conf_vector_position = 2
+		self.__exit_action_main_region_robot_m_rotate_90_degrees_inner_region_rotate_()
 		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_exit(self):
-		"""Default exit sequence for state Exit.
-		"""
-		#Default exit sequence for state Exit
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-		self.__state_conf_vector_position = 2
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_north(self):
-		"""Default exit sequence for state Facing North.
-		"""
-		#Default exit sequence for state Facing North
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_left_90_r1_facing_north()
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_east(self):
-		"""Default exit sequence for state Facing East.
-		"""
-		#Default exit sequence for state Facing East
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_left_90_r1_facing_east()
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_south(self):
-		"""Default exit sequence for state Facing South.
-		"""
-		#Default exit sequence for state Facing South
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_left_90_r1_facing_south()
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left(self):
-		"""Default exit sequence for state Rotate Left.
-		"""
-		#Default exit sequence for state Rotate Left
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_left_90_r1_rotate_left()
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_update_difference(self):
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_update_difference(self):
 		"""Default exit sequence for state Update Difference.
 		"""
 		#Default exit sequence for state Update Difference
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_difference(self):
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference(self):
 		"""Default exit sequence for state Wrap Difference.
 		"""
 		#Default exit sequence for state Wrap Difference
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 		self.__state_conf_vector_position = 2
 		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_west(self):
-		"""Default exit sequence for state Facing West.
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_start(self):
+		"""Default exit sequence for state Start.
 		"""
-		#Default exit sequence for state Facing West
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
+		#Default exit sequence for state Start
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_left_90_r1_facing_west()
 		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_pos(self):
-		"""Default exit sequence for state Wrap Pos.
-		"""
-		#Default exit sequence for state Wrap Pos
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_left_90_r1_wrap_pos()
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_negatve(self):
-		"""Default exit sequence for state Wrap Negatve.
-		"""
-		#Default exit sequence for state Wrap Negatve
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-		self.__state_conf_vector_position = 2
-		self.__exit_action_main_region_robot_m_rotate_left_90_r1_wrap_negatve()
-		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1_bound_scale(self):
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale(self):
 		"""Default exit sequence for state Bound Scale.
 		"""
 		#Default exit sequence for state Bound Scale
-		self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 		self.__state_conf_vector_position = 2
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_exit(self):
+		"""Default exit sequence for state Exit.
+		"""
+		#Default exit sequence for state Exit
+		self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 2
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction(self):
+		"""Default exit sequence for state Calculate Direction.
+		"""
+		#Default exit sequence for state Calculate Direction
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative(self):
+		"""Default exit sequence for state Wrap Direction If Negative.
+		"""
+		#Default exit sequence for state Wrap Direction If Negative
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north(self):
+		"""Default exit sequence for state Facing North.
+		"""
+		#Default exit sequence for state Facing North
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		self.__exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north()
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east(self):
+		"""Default exit sequence for state Facing East.
+		"""
+		#Default exit sequence for state Facing East
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		self.__exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east()
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south(self):
+		"""Default exit sequence for state Facing South.
+		"""
+		#Default exit sequence for state Facing South
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		self.__exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south()
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos(self):
+		"""Default exit sequence for state Wrap Pos.
+		"""
+		#Default exit sequence for state Wrap Pos
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve(self):
+		"""Default exit sequence for state Wrap Negatve.
+		"""
+		#Default exit sequence for state Wrap Negatve
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation(self):
+		"""Default exit sequence for state Finish Calculation.
+		"""
+		#Default exit sequence for state Finish Calculation
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west(self):
+		"""Default exit sequence for state Facing West.
+		"""
+		#Default exit sequence for state Facing West
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
+		self.__exit_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west()
+		
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing(self):
+		"""Default exit sequence for state Wrap Direction Facing.
+		"""
+		#Default exit sequence for state Wrap Direction Facing
+		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+		self.__state_conf_vector_position = 3
 		
 	def __exit_sequence_main_region(self):
 		"""Default exit sequence for region main region.
@@ -2698,75 +2385,73 @@ class Model:
 		state = self.__state_vector[0]
 		if state == self.State.main_region_robot_movement_control_state_________manual_movement:
 			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_forward:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_forward()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_reverse:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_left:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_right:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xbase_state:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_base_state()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xrotate_left_90:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_1st:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_2nd:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly()
-			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd()
-			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xallow__calibration_post_rotation:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust_()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_forward:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_reverse:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_stop:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_rotate_left_90:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_1st:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_2nd:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly()
+			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd()
+			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_allow__calibration_post_rotation:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right()
 		elif state == self.State.main_region_robot_movement_control_state_________take_initial_yaw:
 			self.__exit_sequence_main_region_robot_movement_control_state__________take_initial_yaw()
 		state = self.__state_vector[1]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable()
 		state = self.__state_vector[2]
 		if state == self.State.main_region_robot_mforward:
 			self.__exit_sequence_main_region_robot_m_forward()
@@ -2786,417 +2471,360 @@ class Model:
 			self.__exit_sequence_main_region_robot_m_stop_rotating_left()
 		elif state == self.State.main_region_robot_mstop:
 			self.__exit_sequence_main_region_robot_m_stop()
-		elif state == self.State.main_region_robot_mrotate_right_90:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90()
-		elif state == self.State.main_region_robot_mrotate_right_90r1start:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_start()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_direction:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_direction()
-		elif state == self.State.main_region_robot_mrotate_right_90r1exit:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_exit()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_north:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_north()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_east:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_east()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_south:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_south()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_west:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_west()
-		elif state == self.State.main_region_robot_mrotate_right_90r1rotate_right:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right()
-		elif state == self.State.main_region_robot_mrotate_right_90r1update_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_update_difference()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_difference()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_pos:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_pos()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_negatve:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_negatve()
-		elif state == self.State.main_region_robot_mrotate_right_90r1bound_scale:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_bound_scale()
-		elif state == self.State.main_region_robot_mrotate_left_90:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90()
-		elif state == self.State.main_region_robot_mrotate_left_90r1start:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_start()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_direction:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_direction()
-		elif state == self.State.main_region_robot_mrotate_left_90r1exit:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_exit()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_north:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_north()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_east:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_east()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_south:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_south()
-		elif state == self.State.main_region_robot_mrotate_left_90r1rotate_left:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left()
-		elif state == self.State.main_region_robot_mrotate_left_90r1update_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_update_difference()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_difference()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_west:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_west()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_pos:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_pos()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_negatve:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_negatve()
-		elif state == self.State.main_region_robot_mrotate_left_90r1bound_scale:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_bound_scale()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_left_90:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_right_90:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_update_difference:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_update_difference()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_wrap_difference:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_start:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_start()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_bound_scale:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_exit:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_exit()
+		state = self.__state_vector[3]
+		if state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_north:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_east:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_south:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_pos:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_negatve:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region(self):
-		"""Default exit sequence for region inner region.
+	def __exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement(self):
+		"""Default exit sequence for region Manual Movement.
 		"""
-		#Default exit sequence for region inner region
+		#Default exit sequence for region Manual Movement
 		state = self.__state_vector[0]
-		if state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_forward:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_forward()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_reverse:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_left:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_right:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right()
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop:
-			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop()
+		if state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_forward:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_reverse:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right()
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_stop:
+			self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x(self):
-		"""Default exit sequence for region x.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement(self):
+		"""Default exit sequence for region Auto Movement.
 		"""
-		#Default exit sequence for region x
+		#Default exit sequence for region Auto Movement
 		state = self.__state_vector[0]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_xbase_state:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_base_state()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xrotate_left_90:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_1st:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_2nd:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly()
-			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd()
-			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xallow__calibration_post_rotation:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust_()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_rotate_left_90:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_1st:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_2nd:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly()
+			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd()
+			self.__exit_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_allow__calibration_post_rotation:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1(self):
 		"""Default exit sequence for region r1.
 		"""
 		#Default exit sequence for region r1
 		state = self.__state_vector[0]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1(self):
 		"""Default exit sequence for region r1.
 		"""
 		#Default exit sequence for region r1
 		state = self.__state_vector[0]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1(self):
 		"""Default exit sequence for region r1.
 		"""
 		#Default exit sequence for region r1
 		state = self.__state_vector[0]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust_()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1(self):
-		"""Default exit sequence for region null.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking(self):
+		"""Default exit sequence for region Wall Tracking.
 		"""
-		#Default exit sequence for region null
+		#Default exit sequence for region Wall Tracking
 		state = self.__state_vector[1]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd_(self):
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd_(self):
 		"""Default exit sequence for region -cd .
 		"""
 		#Default exit sequence for region -cd 
 		state = self.__state_vector[1]
-		if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable()
+		if state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable()
 		
-	def __exit_sequence_main_region_robot_m_rotate_right_90_r1(self):
-		"""Default exit sequence for region r1.
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region(self):
+		"""Default exit sequence for region inner region.
 		"""
-		#Default exit sequence for region r1
+		#Default exit sequence for region inner region
 		state = self.__state_vector[2]
-		if state == self.State.main_region_robot_mrotate_right_90r1start:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_start()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_direction:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_direction()
-		elif state == self.State.main_region_robot_mrotate_right_90r1exit:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_exit()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_north:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_north()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_east:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_east()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_south:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_south()
-		elif state == self.State.main_region_robot_mrotate_right_90r1facing_west:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_west()
-		elif state == self.State.main_region_robot_mrotate_right_90r1rotate_right:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right()
-		elif state == self.State.main_region_robot_mrotate_right_90r1update_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_update_difference()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_difference()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_pos:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_pos()
-		elif state == self.State.main_region_robot_mrotate_right_90r1wrap_negatve:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_negatve()
-		elif state == self.State.main_region_robot_mrotate_right_90r1bound_scale:
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_bound_scale()
+		if state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_left_90:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_right_90:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_update_difference:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_update_difference()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_wrap_difference:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_start:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_start()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_bound_scale:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_exit:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_exit()
 		
-	def __exit_sequence_main_region_robot_m_rotate_left_90_r1(self):
-		"""Default exit sequence for region r1.
+	def __exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing(self):
+		"""Default exit sequence for region Calculate Direction Facing.
 		"""
-		#Default exit sequence for region r1
-		state = self.__state_vector[2]
-		if state == self.State.main_region_robot_mrotate_left_90r1start:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_start()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_direction:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_direction()
-		elif state == self.State.main_region_robot_mrotate_left_90r1exit:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_exit()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_north:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_north()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_east:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_east()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_south:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_south()
-		elif state == self.State.main_region_robot_mrotate_left_90r1rotate_left:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left()
-		elif state == self.State.main_region_robot_mrotate_left_90r1update_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_update_difference()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_difference:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_difference()
-		elif state == self.State.main_region_robot_mrotate_left_90r1facing_west:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_west()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_pos:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_pos()
-		elif state == self.State.main_region_robot_mrotate_left_90r1wrap_negatve:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_negatve()
-		elif state == self.State.main_region_robot_mrotate_left_90r1bound_scale:
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_bound_scale()
+		#Default exit sequence for region Calculate Direction Facing
+		state = self.__state_vector[3]
+		if state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_north:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_east:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_south:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_pos:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_negatve:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west()
+		elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing:
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement_x__choice_0(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_0(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.laser_distance.dleft_mean > self.user_var.distance_large and self.laser_distance.dleft_min > 0.2:
-			self.__react_main_region_robot_movement_control_state__________auto_movement_x__choice_3()
+			self.__react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_3()
 		else:
-			self.__react_main_region_robot_movement_control_state__________auto_movement_x__choice_1()
+			self.__react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_1()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement_x__choice_1(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_1(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.laser_distance.dright_mean > self.user_var.distance_large and self.laser_distance.dleft_mean < self.user_var.desired_dist and self.laser_distance.dfront_mean < self.user_var.desired_dist:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_default()
 		else:
-			self.__react_main_region_robot_movement_control_state__________auto_movement_x__choice_2()
+			self.__react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_2()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement_x__choice_2(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_2(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.laser_distance.dback_mean > self.user_var.distance_large and self.laser_distance.dleft_mean < self.user_var.desired_dist and self.laser_distance.dfront_mean < self.user_var.desired_dist and self.laser_distance.dright_mean < self.user_var.desired_dist:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st_default()
 		else:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement_x__choice_3(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_3(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.user_var.last_action_turn_left:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90_default()
 		else:
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly_default()
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___choice_0(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1__choice_1(self):
+		"""The reactions of state null..
+		"""
+		#The reactions of state null.
+		if (self.user_var.left_prev > self.laser_distance.dleft_mean) and self.laser_distance.dleft_mean < 0.25:
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left_default()
+		elif (self.user_var.right_prev > self.laser_distance.dright_mean) and self.laser_distance.dright_mean < 0.25:
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right_default()
+		else:
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward_default()
+		
+	def __react_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd___choice_0(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.__new_col != self.__last_col or self.__new_row != self.__last_row:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos_default()
 		else:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___choice_1(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd___choice_1(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if ((self.__visited_mask & self.__cell_bit)) == 0:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once_default()
 		else:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer_default()
 		
-	def __react_main_region_robot_m_rotate_right_90_r1__choice_1(self):
-		"""The reactions of state null..
-		"""
-		#The reactions of state null.
-		if self.user_var.direction_facing == 0:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_north_default()
-		else:
-			self.__react_main_region_robot_m_rotate_right_90_r1__choice_2()
-		
-	def __react_main_region_robot_m_rotate_right_90_r1__choice_2(self):
-		"""The reactions of state null..
-		"""
-		#The reactions of state null.
-		if self.user_var.direction_facing == 1:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_east_default()
-		else:
-			self.__react_main_region_robot_m_rotate_right_90_r1__choice_3()
-		
-	def __react_main_region_robot_m_rotate_right_90_r1__choice_3(self):
-		"""The reactions of state null..
-		"""
-		#The reactions of state null.
-		if self.user_var.direction_facing == 2:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_south_default()
-		else:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_west_default()
-		
-	def __react_main_region_robot_m_rotate_right_90_r1__choice_5(self):
+	def __react_main_region_robot_m_rotate_90_degrees_inner_region__choice_0(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.user_var.difference >= -(2.0) and self.user_var.difference <= 2.0:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_exit_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_exit_default()
 		else:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate__default()
 		
-	def __react_main_region_robot_m_rotate_right_90_r1__choice_6(self):
+	def __react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_0(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
-		if self.user_var.target_yaw < -(179.9):
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_pos_default()
-		elif self.user_var.target_yaw > 180:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_negatve_default()
+		if self.user_var.direction_facing < 0:
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative_default()
 		else:
-			self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right_default()
+			self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_1()
 		
-	def __react_main_region_robot_m_rotate_left_90_r1__choice_1(self):
+	def __react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_1(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.user_var.direction_facing == 0:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_north_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north_default()
 		else:
-			self.__react_main_region_robot_m_rotate_left_90_r1__choice_2()
+			self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_2()
 		
-	def __react_main_region_robot_m_rotate_left_90_r1__choice_2(self):
+	def __react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_2(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.user_var.direction_facing == 1:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_east_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east_default()
 		else:
-			self.__react_main_region_robot_m_rotate_left_90_r1__choice_3()
+			self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_3()
 		
-	def __react_main_region_robot_m_rotate_left_90_r1__choice_3(self):
+	def __react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_3(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.user_var.direction_facing == 2:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_south_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south_default()
 		else:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_west_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west_default()
 		
-	def __react_main_region_robot_m_rotate_left_90_r1__choice_5(self):
-		"""The reactions of state null..
-		"""
-		#The reactions of state null.
-		if self.user_var.difference >= -(2.0) and self.user_var.difference <= 2.0:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_exit_default()
-		else:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left_default()
-		
-	def __react_main_region_robot_m_rotate_left_90_r1__choice_6(self):
+	def __react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_4(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
 		if self.user_var.target_yaw < -(179.9):
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_pos_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos_default()
 		elif self.user_var.target_yaw > 180:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_negatve_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve_default()
 		else:
-			self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left_default()
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation_default()
+		
+	def __react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_5(self):
+		"""The reactions of state null..
+		"""
+		#The reactions of state null.
+		if self.user_var.direction_facing > 3:
+			self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing_default()
+		else:
+			self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_0()
 		
 	def __react_main_region_robot_movement_control_state___________entry_default(self):
 		"""Default react sequence for initial entry .
@@ -3204,35 +2832,35 @@ class Model:
 		#Default react sequence for initial entry 
 		self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_default()
 		
-	def __react_main_region_robot_movement_control_state__________manual_movement_inner_region__entry_default(self):
+	def __react_main_region_robot_movement_control_state__________manual_movement_manual_movement__entry_default(self):
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement_x__entry_default(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_auto_movement__entry_default(self):
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_base_state_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1__entry_default(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1__entry_default(self):
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___entry_default(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd___entry_default(self):
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle_default()
 		
-	def __react_main_region_robot_movement_control_state__________auto_movement__region1__entry_default(self):
+	def __react_main_region_robot_movement_control_state__________auto_movement_wall_tracking__entry_default(self):
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_default()
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_default()
 		
 	def __react_main_region_robot_m__entry_default(self):
 		"""Default react sequence for initial entry .
@@ -3240,17 +2868,11 @@ class Model:
 		#Default react sequence for initial entry 
 		self.__enter_sequence_main_region_robot_m_stop_default()
 		
-	def __react_main_region_robot_m_rotate_right_90_r1__entry_default(self):
+	def __react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__entry_default(self):
 		"""Default react sequence for initial entry .
 		"""
 		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_start_default()
-		
-	def __react_main_region_robot_m_rotate_left_90_r1__entry_default(self):
-		"""Default react sequence for initial entry .
-		"""
-		#Default react sequence for initial entry 
-		self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_start_default()
+		self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction_default()
 		
 	def __react_main_region__entry_default(self):
 		"""Default react sequence for initial entry .
@@ -3283,16 +2905,16 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________manual_movement_inner_region_forward_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_inner_region_forward_react function.
+	def __main_region_robot_movement_control_state__________manual_movement_manual_movement_forward_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_manual_movement_forward_react function.
 		"""
 		#The reactions of state Forward.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_forward:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_forward()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_forward_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 				elif self.computer.s_press:
@@ -3306,16 +2928,16 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________manual_movement_inner_region_reverse_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_inner_region_reverse_react function.
+	def __main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse_react function.
 		"""
 		#The reactions of state Reverse.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_reversing:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 				elif self.computer.s_press:
@@ -3329,16 +2951,16 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left_react function.
+	def __main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left_react function.
 		"""
 		#The reactions of state Rotate left.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_rot_left:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 				elif self.computer.s_press:
@@ -3352,8 +2974,8 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right_react function.
+	def __main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right_react function.
 		"""
 		#The reactions of state Rotate Right.
 		transitioned_after = transitioned_before
@@ -3364,8 +2986,8 @@ class Model:
 					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_default()
 					transitioned_after = 0
 				elif self.finished_rot_right:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 			#If no transition was taken
@@ -3375,31 +2997,31 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________manual_movement_inner_region_stop_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_inner_region_stop_react function.
+	def __main_region_robot_movement_control_state__________manual_movement_manual_movement_stop_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________manual_movement_manual_movement_stop_react function.
 		"""
 		#The reactions of state Stop.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.computer.w_press:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_forward_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_forward_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 				elif self.computer.x_press:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_reverse_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 				elif self.computer.a_press:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 				elif self.computer.d_press:
-					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_stop()
-					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_stop()
+					self.__enter_sequence_main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right_default()
 					self.__main_region_robot_movement_control_state__________manual_movement_react(0)
 					transitioned_after = 0
 			#If no transition was taken
@@ -3423,148 +3045,148 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_base_state_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_base_state_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state_react function.
 		"""
 		#The reactions of state Base State.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.__time_events[0]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_base_state()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state()
 					self.__time_events[0] = False
-					self.__react_main_region_robot_movement_control_state__________auto_movement_x__choice_0()
+					self.__react_main_region_robot_movement_control_state__________auto_movement_auto_movement__choice_0()
 					transitioned_after = 0
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90_react function.
 		"""
 		#The reactions of state Rotate Left 90.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_rot_left:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90()
-					self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90()
+					self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd_default()
 					transitioned_after = 0
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_react function.
 		"""
 		#The reactions of state Turn Right 90.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_rot_right:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation_default()
 					transitioned_after = 0
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st_react function.
 		"""
 		#The reactions of state Turn Right 90 1st.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_rot_right:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd_default()
 					transitioned_after = 0
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd_react function.
 		"""
 		#The reactions of state Turn Right 90 2nd.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_rot_right:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation_default()
 					transitioned_after = 0
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_react function.
 		"""
-		#The reactions of state Comp State M1.
+		#The reactions of state If Last Action Wasn't turning Left.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.__time_events[1]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left()
 					self.__time_events[1] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90_default()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90_default()
 					transitioned_after = 0
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly_react function.
 		"""
 		#The reactions of state Move Forward Slightly.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_forward:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly_default()
-					self.__main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_react(0)
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly_default()
+					self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_react(0)
 					transitioned_after = 0
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_react function.
 		"""
-		#The reactions of state Comp State M2.
+		#The reactions of state Move Forward To Enter New Cell.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.__time_events[2]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell()
 					self.__time_events[2] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation_default()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation_default()
 					transitioned_after = 0
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd_react function.
 		"""
 		#The reactions of state Move Forward Slightly 2nd.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_forward:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd_default()
-					self.__main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_react(0)
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd_default()
+					self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_react(0)
 					transitioned_after = 0
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation_react function.
 		"""
 		#The reactions of state Allow  Calibration Post Rotation.
 		transitioned_after = transitioned_before
@@ -3573,65 +3195,43 @@ class Model:
 			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement
 			self.__state_conf_vector_position = 0
 			#'default' enter sequence for state Base State
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_base_state()
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xbase_state
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state()
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state
 			self.__state_conf_vector_position = 0
 			self.__state_conf_vector_changed = True
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action_react function.
 		"""
 		#The reactions of state Check Last Action.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Check Last Action
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust
 			self.__state_conf_vector_position = 0
 			#The reactions of state null.
 			if self.user_var.last_action_forward:
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust__default()
+				self.__react_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1__choice_1()
 			else:
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward_default()
+				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward_default()
 		else:
 			#Always execute local reactions.
 			transitioned_after = transitioned_before
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust__react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust__react function.
-		"""
-		#The reactions of state Adjust?.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state Adjust?
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
-			self.__state_conf_vector_position = 0
-			#The reactions of state null.
-			if (self.user_var.left_prev > self.laser_distance.dleft_mean) and self.laser_distance.dleft_mean < 0.25:
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left_default()
-			elif (self.user_var.right_prev > self.laser_distance.dright_mean) and self.laser_distance.dright_mean < 0.25:
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right_default()
-			else:
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward_default()
-		else:
-			#Always execute local reactions.
-			transitioned_after = transitioned_before
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward_react function.
 		"""
 		#The reactions of state Set prev and Forward.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
 				if self.finished_forward:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_base_state_default()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state_default()
 					transitioned_after = 0
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
@@ -3640,18 +3240,18 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left_react function.
 		"""
 		#The reactions of state Going Too Far Left.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Going Too Far Left
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust
 			self.__state_conf_vector_position = 0
 			#'default' enter sequence for state Set prev and Forward
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward()
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward()
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward
 			self.__state_conf_vector_position = 0
 			self.__state_conf_vector_changed = True
 		else:
@@ -3660,18 +3260,18 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right_react function.
 		"""
 		#The reactions of state Going Too Far Right.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Going Too Far Right
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust
 			self.__state_conf_vector_position = 0
 			#'default' enter sequence for state Set prev and Forward
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward()
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward()
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward
 			self.__state_conf_vector_position = 0
 			self.__state_conf_vector_changed = True
 		else:
@@ -3680,8 +3280,8 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react function.
 		"""
 		#The reactions of state Wall Tracking.
 		transitioned_after = transitioned_before
@@ -3691,208 +3291,208 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location_react function.
 		"""
 		#The reactions of state CalculateLocation.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 1:
 				if self.__time_events[3]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location()
 					self.__time_events[3] = False
-					self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___choice_0()
+					self.__react_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd___choice_0()
 					transitioned_after = 1
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle_react function.
 		"""
 		#The reactions of state Idle.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Idle
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 			self.__state_conf_vector_position = 1
 			#'default' enter sequence for state InitOrigin
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin()
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin
 			self.__state_conf_vector_position = 1
 			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+			self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 		else:
 			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos_react function.
 		"""
 		#The reactions of state EnterCellPos.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state EnterCellPos
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 			self.__state_conf_vector_position = 1
 			#'default' enter sequence for state WaitTurnDone
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done
 			self.__state_conf_vector_position = 1
 			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+			self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 		else:
 			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin_react function.
 		"""
 		#The reactions of state InitOrigin.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 1:
 				if self.__time_events[4]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin()
 					self.__time_events[4] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_default()
-					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location_default()
+					self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 					transitioned_after = 1
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer_react function.
 		"""
 		#The reactions of state Timer.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 1:
 				if self.__time_events[5]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer()
 					self.__time_events[5] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_default()
-					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location_default()
+					self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 					transitioned_after = 1
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited_react function.
 		"""
 		#The reactions of state CommitVisited.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state CommitVisited
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 			self.__state_conf_vector_position = 1
 			#'default' enter sequence for state Timer
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer()
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer()
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer
 			self.__state_conf_vector_position = 1
 			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+			self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 		else:
 			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once_react function.
 		"""
 		#The reactions of state WriteCellOnce.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state WriteCellOnce
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking
 			self.__state_conf_vector_position = 1
 			#'default' enter sequence for state HoldUpdate
-			self.__entry_action_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
-			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update
+			self.__entry_action_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update()
+			self.__state_vector[1] = self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update
 			self.__state_conf_vector_position = 1
 			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+			self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 		else:
 			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+			transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update_react function.
 		"""
 		#The reactions of state HoldUpdate.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 1:
 				if self.__time_events[6]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update()
 					self.__time_events[6] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_default()
-					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited_default()
+					self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 					transitioned_after = 1
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done_react function.
 		"""
 		#The reactions of state WaitTurnDone.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 1:
 				if self.__is_turning:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done_default()
-					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done_default()
+					self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 					transitioned_after = 1
 				elif not self.__is_turning:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done()
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable_default()
-					self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(1)
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable_default()
+					self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(1)
 					transitioned_after = 1
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable_react function.
+	def __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable_react function.
 		"""
 		#The reactions of state WaitStable.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 1:
 				if self.__time_events[7]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable()
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable()
 					self.__time_events[7] = False
-					self.__react_main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd___choice_1()
+					self.__react_main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd___choice_1()
 					transitioned_after = 1
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -3906,8 +3506,8 @@ class Model:
 			self.__state_vector[0] = self.State.main_region_robot
 			self.__state_conf_vector_position = 0
 			#'default' enter sequence for state Auto Movement
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_x_default()
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement__region1_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_auto_movement_default()
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_wall_tracking_default()
 		return transitioned_after
 	
 	
@@ -4124,12 +3724,14 @@ class Model:
 					transitioned_after = 2
 				elif self.rotate_right90:
 					self.__exit_sequence_main_region_robot_m_stop()
-					self.__enter_sequence_main_region_robot_m_rotate_right_90_default()
+					self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90_default()
+					self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_default()
 					self.__main_region_robot_react(0)
 					transitioned_after = 2
 				elif self.rotate_left90:
 					self.__exit_sequence_main_region_robot_m_stop()
-					self.__enter_sequence_main_region_robot_m_rotate_left_90_default()
+					self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90_default()
+					self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_default()
 					self.__main_region_robot_react(0)
 					transitioned_after = 2
 			#If no transition was taken
@@ -4139,18 +3741,18 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_react function.
+	def __main_region_robot_m_rotate_90_degrees_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_react function.
 		"""
-		#The reactions of state Rotate Right 90.
+		#The reactions of state Rotate 90 Degrees.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 2:
 				if self.stop:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90()
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees()
 					self.__enter_sequence_main_region_robot_m_stop_default()
 					self.__main_region_robot_react(0)
-					transitioned_after = 2
+					transitioned_after = 3
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
@@ -4158,548 +3760,341 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_r1_start_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_start_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90_react function.
 		"""
-		#The reactions of state Start.
+		#The reactions of state Rotate Left 90.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state Start
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
+			#Default exit sequence for state Rotate Left 90
+			self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 			self.__state_conf_vector_position = 2
-			#The reactions of state null.
-			if self.user_var.direction_facing > 3:
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_direction_default()
-			else:
-				self.__react_main_region_robot_m_rotate_right_90_r1__choice_1()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
+			#'default' enter sequence for state Start
+			self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_start()
+			self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_start
+			self.__state_conf_vector_position = 2
+			self.__state_conf_vector_changed = True
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_r1_wrap_direction_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_wrap_direction_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90_react function.
 		"""
-		#The reactions of state Wrap Direction.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state Wrap Direction
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
-			self.__state_conf_vector_position = 2
-			#The reactions of state null.
-			if self.user_var.direction_facing == 0:
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_facing_north_default()
-			else:
-				self.__react_main_region_robot_m_rotate_right_90_r1__choice_2()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_right_90_r1_exit_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_exit_react function.
-		"""
-		#The reactions of state Exit.
+		#The reactions of state Rotate Right 90.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Rotate Right 90
-			self.__exit_sequence_main_region_robot_m_rotate_right_90_r1()
-			self.__state_vector[2] = self.State.main_region_robot
+			self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 			self.__state_conf_vector_position = 2
-			#'default' enter sequence for state Stop
-			self.__entry_action_main_region_robot_m_stop()
-			self.__state_vector[2] = self.State.main_region_robot_mstop
+			#'default' enter sequence for state Start
+			self.__entry_action_main_region_robot_m_rotate_90_degrees_inner_region_start()
+			self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees_inner_region_start
 			self.__state_conf_vector_position = 2
 			self.__state_conf_vector_changed = True
-			self.__main_region_robot_react(0)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_r1_facing_north_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_facing_north_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_rotate__react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_rotate__react function.
 		"""
-		#The reactions of state Facing North.
+		#The reactions of state Rotate .
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 2:
 				if self.__time_events[12]:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_north()
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate_()
 					self.__time_events[12] = False
-					self.__react_main_region_robot_m_rotate_right_90_r1__choice_6()
+					self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_update_difference_default()
 					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_r1_facing_east_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_facing_east_react function.
-		"""
-		#The reactions of state Facing East.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[13]:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_east()
-					self.__time_events[13] = False
-					self.__react_main_region_robot_m_rotate_right_90_r1__choice_6()
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_right_90_r1_facing_south_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_facing_south_react function.
-		"""
-		#The reactions of state Facing South.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[14]:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_south()
-					self.__time_events[14] = False
-					self.__react_main_region_robot_m_rotate_right_90_r1__choice_6()
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_right_90_r1_facing_west_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_facing_west_react function.
-		"""
-		#The reactions of state Facing West.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[15]:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_facing_west()
-					self.__time_events[15] = False
-					self.__react_main_region_robot_m_rotate_right_90_r1__choice_6()
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_right_90_r1_rotate_right_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_rotate_right_react function.
-		"""
-		#The reactions of state Rotate Right.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[16]:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right()
-					self.__time_events[16] = False
-					self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_update_difference_default()
-					self.__main_region_robot_m_rotate_right_90_react(2)
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_right_90_r1_update_difference_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_update_difference_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_update_difference_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_update_difference_react function.
 		"""
 		#The reactions of state Update Difference.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Update Difference
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
+			self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 			self.__state_conf_vector_position = 2
 			#The reactions of state null.
 			if self.user_var.difference < -(180):
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_difference_default()
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference_default()
 			elif self.user_var.scale > 1.5:
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_bound_scale_default()
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale_default()
 			else:
-				self.__react_main_region_robot_m_rotate_right_90_r1__choice_5()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
+				self.__react_main_region_robot_m_rotate_90_degrees_inner_region__choice_0()
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_r1_wrap_difference_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_wrap_difference_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference_react function.
 		"""
 		#The reactions of state Wrap Difference.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Wrap Difference
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
+			self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 			self.__state_conf_vector_position = 2
 			#The reactions of state null.
-			if self.user_var.difference >= -(2.0) and self.user_var.difference <= 2.0:
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_exit_default()
+			if self.user_var.difference < -(180):
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference_default()
+			elif self.user_var.scale > 1.5:
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale_default()
 			else:
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right_default()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
+				self.__react_main_region_robot_m_rotate_90_degrees_inner_region__choice_0()
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_r1_wrap_pos_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_wrap_pos_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_start_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_start_react function.
 		"""
-		#The reactions of state Wrap Pos.
+		#The reactions of state Start.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 2:
-				if self.__time_events[17]:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_pos()
-					self.__time_events[17] = False
-					self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right_default()
-					self.__main_region_robot_m_rotate_right_90_react(2)
+				if self.calculate_direction_finished:
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region_start()
+					self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_rotate__default()
 					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_right_90_r1_wrap_negatve_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_wrap_negatve_react function.
-		"""
-		#The reactions of state Wrap Negatve.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[18]:
-					self.__exit_sequence_main_region_robot_m_rotate_right_90_r1_wrap_negatve()
-					self.__time_events[18] = False
-					self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_rotate_right_default()
-					self.__main_region_robot_m_rotate_right_90_react(2)
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_right_90_r1_bound_scale_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_right_90_r1_bound_scale_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_bound_scale_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_bound_scale_react function.
 		"""
 		#The reactions of state Bound Scale.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
 			#Default exit sequence for state Bound Scale
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_right_90
+			self.__state_vector[2] = self.State.main_region_robot_mrotate_90_degrees
 			self.__state_conf_vector_position = 2
 			#The reactions of state null.
 			if self.user_var.difference < -(180):
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_wrap_difference_default()
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference_default()
 			elif self.user_var.scale > 1.5:
-				self.__enter_sequence_main_region_robot_m_rotate_right_90_r1_bound_scale_default()
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_inner_region_bound_scale_default()
 			else:
-				self.__react_main_region_robot_m_rotate_right_90_r1__choice_5()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_right_90_react(transitioned_before)
+				self.__react_main_region_robot_m_rotate_90_degrees_inner_region__choice_0()
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_react function.
-		"""
-		#The reactions of state Rotate Left 90.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.stop:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90()
-					self.__enter_sequence_main_region_robot_m_stop_default()
-					self.__main_region_robot_react(0)
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_left_90_r1_start_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_start_react function.
-		"""
-		#The reactions of state Start.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state Start
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-			self.__state_conf_vector_position = 2
-			#The reactions of state null.
-			if self.user_var.direction_facing < 0:
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_direction_default()
-			else:
-				self.__react_main_region_robot_m_rotate_left_90_r1__choice_1()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_left_90_r1_wrap_direction_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_wrap_direction_react function.
-		"""
-		#The reactions of state Wrap Direction.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state Wrap Direction
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-			self.__state_conf_vector_position = 2
-			#The reactions of state null.
-			if self.user_var.direction_facing == 0:
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_facing_north_default()
-			else:
-				self.__react_main_region_robot_m_rotate_left_90_r1__choice_2()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_left_90_r1_exit_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_exit_react function.
+	def __main_region_robot_m_rotate_90_degrees_inner_region_exit_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_inner_region_exit_react function.
 		"""
 		#The reactions of state Exit.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state Rotate Left 90
-			self.__exit_sequence_main_region_robot_m_rotate_left_90_r1()
+			#Default exit sequence for state Rotate 90 Degrees
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region()
+			self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing()
 			self.__state_vector[2] = self.State.main_region_robot
-			self.__state_conf_vector_position = 2
+			self.__state_vector[3] = self.State.main_region_robot
+			self.__state_conf_vector_position = 3
 			#'default' enter sequence for state Stop
 			self.__entry_action_main_region_robot_m_stop()
 			self.__state_vector[2] = self.State.main_region_robot_mstop
 			self.__state_conf_vector_position = 2
 			self.__state_conf_vector_changed = True
 			self.__main_region_robot_react(0)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_r1_facing_north_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_facing_north_react function.
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction_react function.
+		"""
+		#The reactions of state Calculate Direction.
+		transitioned_after = transitioned_before
+		if not self.__do_completion:
+			if transitioned_after < 3:
+				if self.calculate_direction:
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction()
+					self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_5()
+					transitioned_after = 3
+			#If no transition was taken
+			if transitioned_after == transitioned_before:
+				#then execute local reactions.
+				transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
+		return transitioned_after
+	
+	
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative_react function.
+		"""
+		#The reactions of state Wrap Direction If Negative.
+		transitioned_after = transitioned_before
+		if self.__do_completion:
+			#Default exit sequence for state Wrap Direction If Negative
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+			self.__state_conf_vector_position = 3
+			#The reactions of state null.
+			if self.user_var.direction_facing == 0:
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north_default()
+			else:
+				self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_2()
+		else:
+			#Always execute local reactions.
+			transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
+		return transitioned_after
+	
+	
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north_react function.
 		"""
 		#The reactions of state Facing North.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[19]:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_north()
-					self.__time_events[19] = False
-					self.__react_main_region_robot_m_rotate_left_90_r1__choice_6()
-					transitioned_after = 2
+			if transitioned_after < 3:
+				if self.__time_events[13]:
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north()
+					self.__time_events[13] = False
+					self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_4()
+					transitioned_after = 3
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_r1_facing_east_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_facing_east_react function.
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east_react function.
 		"""
 		#The reactions of state Facing East.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[20]:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_east()
-					self.__time_events[20] = False
-					self.__react_main_region_robot_m_rotate_left_90_r1__choice_6()
-					transitioned_after = 2
+			if transitioned_after < 3:
+				if self.__time_events[14]:
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east()
+					self.__time_events[14] = False
+					self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_4()
+					transitioned_after = 3
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_r1_facing_south_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_facing_south_react function.
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south_react function.
 		"""
 		#The reactions of state Facing South.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[21]:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_south()
-					self.__time_events[21] = False
-					self.__react_main_region_robot_m_rotate_left_90_r1__choice_6()
-					transitioned_after = 2
+			if transitioned_after < 3:
+				if self.__time_events[15]:
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south()
+					self.__time_events[15] = False
+					self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_4()
+					transitioned_after = 3
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_r1_rotate_left_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_rotate_left_react function.
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos_react function.
 		"""
-		#The reactions of state Rotate Left.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[22]:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left()
-					self.__time_events[22] = False
-					self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_update_difference_default()
-					self.__main_region_robot_m_rotate_left_90_react(2)
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_left_90_r1_update_difference_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_update_difference_react function.
-		"""
-		#The reactions of state Update Difference.
+		#The reactions of state Wrap Pos.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state Update Difference
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-			self.__state_conf_vector_position = 2
-			#The reactions of state null.
-			if self.user_var.difference < -(180):
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_difference_default()
-			elif self.user_var.scale > 1.5:
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_bound_scale_default()
-			else:
-				self.__react_main_region_robot_m_rotate_left_90_r1__choice_5()
+			#Default exit sequence for state Wrap Pos
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+			self.__state_conf_vector_position = 3
+			#'default' enter sequence for state Finish Calculation
+			self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation()
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation
+			self.__state_conf_vector_position = 3
+			self.__state_conf_vector_changed = True
+			self.__main_region_robot_m_rotate_90_degrees_react(2)
 		else:
 			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
+			transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_r1_wrap_difference_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_wrap_difference_react function.
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve_react function.
 		"""
-		#The reactions of state Wrap Difference.
+		#The reactions of state Wrap Negatve.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state Wrap Difference
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-			self.__state_conf_vector_position = 2
-			#The reactions of state null.
-			if self.user_var.difference < -(180):
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_difference_default()
-			elif self.user_var.scale > 1.5:
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_bound_scale_default()
-			else:
-				self.__react_main_region_robot_m_rotate_left_90_r1__choice_5()
+			#Default exit sequence for state Wrap Negatve
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+			self.__state_conf_vector_position = 3
+			#'default' enter sequence for state Finish Calculation
+			self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation()
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation
+			self.__state_conf_vector_position = 3
+			self.__state_conf_vector_changed = True
+			self.__main_region_robot_m_rotate_90_degrees_react(2)
 		else:
 			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
+			transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_r1_facing_west_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_facing_west_react function.
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation_react function.
+		"""
+		#The reactions of state Finish Calculation.
+		transitioned_after = transitioned_before
+		if self.__do_completion:
+			#Default exit sequence for state Finish Calculation
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+			self.__state_conf_vector_position = 3
+			#'default' enter sequence for state Calculate Direction
+			self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction()
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction
+			self.__state_conf_vector_position = 3
+			self.__state_conf_vector_changed = True
+			self.__main_region_robot_m_rotate_90_degrees_react(2)
+		else:
+			#Always execute local reactions.
+			transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
+		return transitioned_after
+	
+	
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west_react function.
 		"""
 		#The reactions of state Facing West.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[23]:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_facing_west()
-					self.__time_events[23] = False
-					self.__react_main_region_robot_m_rotate_left_90_r1__choice_6()
-					transitioned_after = 2
+			if transitioned_after < 3:
+				if self.__time_events[16]:
+					self.__exit_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west()
+					self.__time_events[16] = False
+					self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_4()
+					transitioned_after = 3
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
 		return transitioned_after
 	
 	
-	def __main_region_robot_m_rotate_left_90_r1_wrap_pos_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_wrap_pos_react function.
+	def __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing_react function.
 		"""
-		#The reactions of state Wrap Pos.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[24]:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_pos()
-					self.__time_events[24] = False
-					self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left_default()
-					self.__main_region_robot_m_rotate_left_90_react(2)
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_left_90_r1_wrap_negatve_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_wrap_negatve_react function.
-		"""
-		#The reactions of state Wrap Negatve.
-		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 2:
-				if self.__time_events[25]:
-					self.__exit_sequence_main_region_robot_m_rotate_left_90_r1_wrap_negatve()
-					self.__time_events[25] = False
-					self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_rotate_left_default()
-					self.__main_region_robot_m_rotate_left_90_react(2)
-					transitioned_after = 2
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_m_rotate_left_90_r1_bound_scale_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_m_rotate_left_90_r1_bound_scale_react function.
-		"""
-		#The reactions of state Bound Scale.
+		#The reactions of state Wrap Direction Facing.
 		transitioned_after = transitioned_before
 		if self.__do_completion:
-			#Default exit sequence for state Bound Scale
-			self.__state_vector[2] = self.State.main_region_robot_mrotate_left_90
-			self.__state_conf_vector_position = 2
+			#Default exit sequence for state Wrap Direction Facing
+			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
+			self.__state_conf_vector_position = 3
 			#The reactions of state null.
-			if self.user_var.difference < -(180):
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_wrap_difference_default()
-			elif self.user_var.scale > 1.5:
-				self.__enter_sequence_main_region_robot_m_rotate_left_90_r1_bound_scale_default()
+			if self.user_var.direction_facing < 0:
+				self.__enter_sequence_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative_default()
 			else:
-				self.__react_main_region_robot_m_rotate_left_90_r1__choice_5()
+				self.__react_main_region_robot_m_rotate_90_degrees_calculate_direction_facing__choice_1()
 		else:
 			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_m_rotate_left_90_react(transitioned_before)
+			transitioned_after = self.__main_region_robot_m_rotate_90_degrees_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -4729,15 +4124,6 @@ class Model:
 		self.__time_events[14] = False
 		self.__time_events[15] = False
 		self.__time_events[16] = False
-		self.__time_events[17] = False
-		self.__time_events[18] = False
-		self.__time_events[19] = False
-		self.__time_events[20] = False
-		self.__time_events[21] = False
-		self.__time_events[22] = False
-		self.__time_events[23] = False
-		self.__time_events[24] = False
-		self.__time_events[25] = False
 	
 	
 	def __clear_internal_events(self):
@@ -4754,6 +4140,8 @@ class Model:
 		self.finished_reversing = False
 		self.rotate_right90 = False
 		self.rotate_left90 = False
+		self.calculate_direction = False
+		self.calculate_direction_finished = False
 	
 	
 	def __micro_step(self):
@@ -4762,138 +4150,122 @@ class Model:
 		transitioned = -1
 		self.__state_conf_vector_position = 0
 		state = self.__state_vector[0]
-		if state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_forward:
-			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_inner_region_forward_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_reverse:
-			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_inner_region_reverse_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_left:
-			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_left_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_rotate_right:
-			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_inner_region_rotate_right_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_inner_region_stop:
-			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_inner_region_stop_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xbase_state:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_base_state_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xrotate_left_90:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_rotate_left_90_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_1st:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_1st_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xturn_right_90_2nd:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_turn_right_90_2nd_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m1r1move_forward_slightly:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_comp_state_m1_r1_move_forward_slightly_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xcomp_state_m2r1move_forward_slightly_2nd:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2_r1_move_forward_slightly_2nd_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xallow__calibration_post_rotation:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_allow__calibration_post_rotation_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1check_last_action:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_check_last_action_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1adjust_:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_adjust__react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1set_prev_and_forward:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_set_prev_and_forward_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_left:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_left_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_xmove_forward_and_adjust_r1going_too_far_right:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_x_move_forward_and_adjust_r1_going_too_far_right_react(transitioned)
+		if state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_forward:
+			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_manual_movement_forward_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_reverse:
+			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_manual_movement_reverse_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_left:
+			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_left_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_rotate_right:
+			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_manual_movement_rotate_right_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________manual_movement_manual_movement_stop:
+			transitioned = self.__main_region_robot_movement_control_state__________manual_movement_manual_movement_stop_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_base_state:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_rotate_left_90:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_rotate_left_90_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_1st:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_1st_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_turn_right_90_2nd:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_turn_right_90_2nd_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1move_forward_slightly:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_if_last_action_wasn_t_turning_left_r1_move_forward_slightly_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1move_forward_slightly_2nd:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_to_enter_new_cell_r1_move_forward_slightly_2nd_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_allow__calibration_post_rotation:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_allow__calibration_post_rotation_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1check_last_action:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_check_last_action_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1set_prev_and_forward:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_set_prev_and_forward_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_left:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_left_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_movement_auto_movement_move_forward_and_adjust_r1going_too_far_right:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_movement_auto_movement_move_forward_and_adjust_r1_going_too_far_right_react(transitioned)
 		elif state == self.State.main_region_robot_movement_control_state_________take_initial_yaw:
 			transitioned = self.__main_region_robot_movement_control_state__________take_initial_yaw_react(transitioned)
 		if self.__state_conf_vector_position < 1:
 			state = self.__state_vector[1]
-			if state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_calculate_location:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__calculate_location_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_idle:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__idle_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_enter_cell_pos:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__enter_cell_pos_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_init_origin:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__init_origin_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_timer:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__timer_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_commit_visited:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__commit_visited_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_write_cell_once:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__write_cell_once_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_hold_update:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__hold_update_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_turn_done:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_turn_done_react(transitioned)
-			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_region1wall_tracking_cd_wait_stable:
-				transitioned = self.__main_region_robot_movement_control_state__________auto_movement__region1_wall_tracking__cd__wait_stable_react(transitioned)
+			if state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_calculate_location:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__calculate_location_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_idle:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__idle_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_enter_cell_pos:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__enter_cell_pos_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_init_origin:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__init_origin_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_timer:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__timer_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_commit_visited:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__commit_visited_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_write_cell_once:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__write_cell_once_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_hold_update:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__hold_update_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_turn_done:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_turn_done_react(transitioned)
+			elif state == self.State.main_region_robot_movement_control_state_________auto_movement_wall_tracking_wall_tracking_cd_wait_stable:
+				transitioned = self.__main_region_robot_movement_control_state__________auto_movement_wall_tracking_wall_tracking__cd__wait_stable_react(transitioned)
 		if self.__state_conf_vector_position < 2:
 			state = self.__state_vector[2]
 			if state == self.State.main_region_robot_mforward:
-				self.__main_region_robot_m_forward_react(transitioned)
+				transitioned = self.__main_region_robot_m_forward_react(transitioned)
 			elif state == self.State.main_region_robot_mreverse:
-				self.__main_region_robot_m_reverse_react(transitioned)
+				transitioned = self.__main_region_robot_m_reverse_react(transitioned)
 			elif state == self.State.main_region_robot_mrotate_right:
-				self.__main_region_robot_m_rotate_right_react(transitioned)
+				transitioned = self.__main_region_robot_m_rotate_right_react(transitioned)
 			elif state == self.State.main_region_robot_mstop_forward:
-				self.__main_region_robot_m_stop_forward_react(transitioned)
+				transitioned = self.__main_region_robot_m_stop_forward_react(transitioned)
 			elif state == self.State.main_region_robot_mstop_reversing:
-				self.__main_region_robot_m_stop_reversing_react(transitioned)
+				transitioned = self.__main_region_robot_m_stop_reversing_react(transitioned)
 			elif state == self.State.main_region_robot_mstop_rotating_right:
-				self.__main_region_robot_m_stop_rotating_right_react(transitioned)
+				transitioned = self.__main_region_robot_m_stop_rotating_right_react(transitioned)
 			elif state == self.State.main_region_robot_mrotate_left:
-				self.__main_region_robot_m_rotate_left_react(transitioned)
+				transitioned = self.__main_region_robot_m_rotate_left_react(transitioned)
 			elif state == self.State.main_region_robot_mstop_rotating_left:
-				self.__main_region_robot_m_stop_rotating_left_react(transitioned)
+				transitioned = self.__main_region_robot_m_stop_rotating_left_react(transitioned)
 			elif state == self.State.main_region_robot_mstop:
-				self.__main_region_robot_m_stop_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1start:
-				self.__main_region_robot_m_rotate_right_90_r1_start_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1wrap_direction:
-				self.__main_region_robot_m_rotate_right_90_r1_wrap_direction_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1exit:
-				self.__main_region_robot_m_rotate_right_90_r1_exit_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1facing_north:
-				self.__main_region_robot_m_rotate_right_90_r1_facing_north_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1facing_east:
-				self.__main_region_robot_m_rotate_right_90_r1_facing_east_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1facing_south:
-				self.__main_region_robot_m_rotate_right_90_r1_facing_south_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1facing_west:
-				self.__main_region_robot_m_rotate_right_90_r1_facing_west_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1rotate_right:
-				self.__main_region_robot_m_rotate_right_90_r1_rotate_right_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1update_difference:
-				self.__main_region_robot_m_rotate_right_90_r1_update_difference_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1wrap_difference:
-				self.__main_region_robot_m_rotate_right_90_r1_wrap_difference_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1wrap_pos:
-				self.__main_region_robot_m_rotate_right_90_r1_wrap_pos_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1wrap_negatve:
-				self.__main_region_robot_m_rotate_right_90_r1_wrap_negatve_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_right_90r1bound_scale:
-				self.__main_region_robot_m_rotate_right_90_r1_bound_scale_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1start:
-				self.__main_region_robot_m_rotate_left_90_r1_start_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1wrap_direction:
-				self.__main_region_robot_m_rotate_left_90_r1_wrap_direction_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1exit:
-				self.__main_region_robot_m_rotate_left_90_r1_exit_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1facing_north:
-				self.__main_region_robot_m_rotate_left_90_r1_facing_north_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1facing_east:
-				self.__main_region_robot_m_rotate_left_90_r1_facing_east_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1facing_south:
-				self.__main_region_robot_m_rotate_left_90_r1_facing_south_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1rotate_left:
-				self.__main_region_robot_m_rotate_left_90_r1_rotate_left_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1update_difference:
-				self.__main_region_robot_m_rotate_left_90_r1_update_difference_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1wrap_difference:
-				self.__main_region_robot_m_rotate_left_90_r1_wrap_difference_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1facing_west:
-				self.__main_region_robot_m_rotate_left_90_r1_facing_west_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1wrap_pos:
-				self.__main_region_robot_m_rotate_left_90_r1_wrap_pos_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1wrap_negatve:
-				self.__main_region_robot_m_rotate_left_90_r1_wrap_negatve_react(transitioned)
-			elif state == self.State.main_region_robot_mrotate_left_90r1bound_scale:
-				self.__main_region_robot_m_rotate_left_90_r1_bound_scale_react(transitioned)
+				transitioned = self.__main_region_robot_m_stop_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_left_90:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_rotate_left_90_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_right_90:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_rotate_right_90_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_rotate_:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_rotate__react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_update_difference:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_update_difference_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_wrap_difference:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_wrap_difference_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_start:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_start_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_bound_scale:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_bound_scale_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_inner_region_exit:
+				transitioned = self.__main_region_robot_m_rotate_90_degrees_inner_region_exit_react(transitioned)
+		if self.__state_conf_vector_position < 3:
+			state = self.__state_vector[3]
+			if state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_north:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_north_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_east:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_east_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_south:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_south_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_pos:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_pos_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_negatve:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_negatve_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_finish_calculation:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_finish_calculation_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_facing_west_react(transitioned)
+			elif state == self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing:
+				self.__main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_facing_react(transitioned)
 	
 	
 	def run_cycle(self):
@@ -4974,7 +4346,8 @@ class Model:
 		self.__state_vector[0] = self.State.null_state
 		self.__state_vector[1] = self.State.null_state
 		self.__state_vector[2] = self.State.null_state
-		self.__state_conf_vector_position = 2
+		self.__state_vector[3] = self.State.null_state
+		self.__state_conf_vector_position = 3
 		self.__is_executing = False
 	
 	
