@@ -304,7 +304,7 @@
               <vertices xsi:type="sgraph:Entry" xmi:id="_uyVf9MlUEfCg3t4JJHEZag">
                 <outgoingTransitions xmi:id="_eI6RoMrrEfCVk6NeokQvrg" specification="" target="_ZL_rzMrrEfCVk6NeokQvrg"/>
               </vertices>
-              <vertices xsi:type="sgraph:State" xmi:id="_ZL_rzMrrEfCVk6NeokQvrg" specification="entry / &#xA;userVar.directionFacing -= 1; userVar.scale = 0.0;&#xA;isTurning = true" name="Start" incomingTransitions="_eI6RoMrrEfCVk6NeokQvrg">
+              <vertices xsi:type="sgraph:State" xmi:id="_ZL_rzMrrEfCVk6NeokQvrg" specification="entry / &#xA;userVar.directionFacing -= 1; userVar.scale = 0.0" name="Start" incomingTransitions="_eI6RoMrrEfCVk6NeokQvrg">
                 <outgoingTransitions xmi:id="_ZMCH-srrEfCVk6NeokQvrg" specification="" target="_ZMDWEMrrEfCVk6NeokQvrg"/>
               </vertices>
               <vertices xsi:type="sgraph:Choice" xmi:id="_ZMDWEMrrEfCVk6NeokQvrg" incomingTransitions="_ZMCH-srrEfCVk6NeokQvrg">
@@ -338,7 +338,7 @@
                 <outgoingTransitions xmi:id="_ZMHnjsrrEfCVk6NeokQvrg" specification="[userVar.directionFacing &#xA;&#x9;== 2&#xA;]" target="_ZMGZYMrrEfCVk6NeokQvrg"/>
                 <outgoingTransitions xmi:id="_i21ZUMrrEfCVk6NeokQvrg" specification="" target="_hsKV8MrrEfCVk6NeokQvrg"/>
               </vertices>
-              <vertices xsi:type="sgraph:State" xmi:id="_ZMI1oMrrEfCVk6NeokQvrg" specification="entry / output.rotation = userVar.baseRotation * userVar.scale" name="Rotate Left" incomingTransitions="_ZMKq4MrrEfCVk6NeokQvrg _Tp65EMuBEfCJQY99c37Fqg _VrgWUMuBEfCJQY99c37Fqg _X3z10MuBEfCJQY99c37Fqg">
+              <vertices xsi:type="sgraph:State" xmi:id="_ZMI1oMrrEfCVk6NeokQvrg" specification="entry / output.rotation = userVar.baseRotation * userVar.scale;&#xA;isTurning = true" name="Rotate Left" incomingTransitions="_ZMKq4MrrEfCVk6NeokQvrg _Tp65EMuBEfCJQY99c37Fqg _VrgWUMuBEfCJQY99c37Fqg _X3z10MuBEfCJQY99c37Fqg">
                 <outgoingTransitions xmi:id="_ZMI1u8rrEfCVk6NeokQvrg" specification="after 100 ms" target="_ZMI1wMrrEfCVk6NeokQvrg"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_ZMI1wMrrEfCVk6NeokQvrg" specification="entry / output.rotation = 0.0;&#xA;userVar.difference = userVar.targetYaw - imu.yaw;&#xA;userVar.scale = 0.8 + ((userVar.difference &#xA;&#x9;* (userVar.difference)&#xA;) / 8100) * 1.5" name="Update Difference" incomingTransitions="_ZMI1u8rrEfCVk6NeokQvrg">

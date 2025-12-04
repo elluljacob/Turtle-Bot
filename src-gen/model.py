@@ -1255,7 +1255,6 @@ class Model:
 		#Entry action for state 'Start'.
 		self.user_var.direction_facing = self.user_var.direction_facing - 1
 		self.user_var.scale = 0.0
-		self.__is_turning = True
 		self.__completed = True
 		
 	def __entry_action_main_region_robot_m_rotate_left_90_r1_wrap_direction(self):
@@ -1301,6 +1300,7 @@ class Model:
 		#Entry action for state 'Rotate Left'.
 		self.timer_service.set_timer(self, 22, 100, False)
 		self.output.rotation = (self.user_var.base_rotation * self.user_var.scale)
+		self.__is_turning = True
 		
 	def __entry_action_main_region_robot_m_rotate_left_90_r1_update_difference(self):
 		""".
