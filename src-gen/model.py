@@ -1199,12 +1199,6 @@ class Model:
 		self.__is_turning = False
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction(self):
-		"""Entry action for state 'Calculate Direction'..
-		"""
-		#Entry action for state 'Calculate Direction'.
-		self.internal_operation_callback.debug_real(self.user_var.direction_facing)
-		
 	def __entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_wrap_direction_if_negative(self):
 		""".
 		"""
@@ -1776,7 +1770,6 @@ class Model:
 		"""'default' enter sequence for state Calculate Direction.
 		"""
 		#'default' enter sequence for state Calculate Direction
-		self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction()
 		self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction
 		self.__state_conf_vector_position = 3
 		self.__state_conf_vector_changed = True
@@ -4048,7 +4041,6 @@ class Model:
 			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees
 			self.__state_conf_vector_position = 3
 			#'default' enter sequence for state Calculate Direction
-			self.__entry_action_main_region_robot_m_rotate_90_degrees_calculate_direction_facing_calculate_direction()
 			self.__state_vector[3] = self.State.main_region_robot_mrotate_90_degrees_calculate_direction_facing_calculate_direction
 			self.__state_conf_vector_position = 3
 			self.__state_conf_vector_changed = True
