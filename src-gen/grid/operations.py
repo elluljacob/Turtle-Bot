@@ -12,3 +12,6 @@ class Callback:
 
     def debug_real(self, val):
         print('Operation debug has been called by the state machine: ' + str(val))
+
+    def abs_variable(self, val):
+        return abs(val)
