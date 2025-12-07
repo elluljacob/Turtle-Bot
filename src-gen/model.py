@@ -52,7 +52,6 @@ class Model:
 			main_region_robot_movement_control_state_________auto_navigation,
 			main_region_robot_movement_control_state_________auto_navigation_r1entry,
 			main_region_robot_movement_control_state_________auto_navigation_r1fetch_current_cell,
-			main_region_robot_movement_control_state_________auto_navigation_r1hold_fetch,
 			main_region_robot_movement_control_state_________auto_navigation_r1done_,
 			main_region_robot_movement_control_state_________auto_navigation_r1turn_left,
 			main_region_robot_movement_control_state_________auto_navigation_r1calculate_location,
@@ -61,7 +60,9 @@ class Model:
 			main_region_robot_movement_control_state_________auto_navigation_r1do_it_again,
 			main_region_robot_movement_control_state_________auto_navigation_r1forward,
 			main_region_robot_movement_control_state_________auto_navigation_r1stop,
-			main_region_robot_movement_control_state_________auto_navigation_r1timer,
+			main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle,
+			main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left,
+			main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right,
 			main_region_robot_movement_control_state_________hold,
 			main_region_robot_mforward,
 			main_region_robot_mreverse,
@@ -92,7 +93,7 @@ class Model:
 			main_region_robot_mrotate_90_degrees_calculate_direction_facing_facing_west,
 			main_region_robot_mrotate_90_degrees_calculate_direction_facing_wrap_direction_facing,
 			null_state
-		) = range(78)
+		) = range(79)
 	
 	
 	class UserVar:
@@ -118,6 +119,7 @@ class Model:
 			self.difference = None
 			self.desired_dist = None
 			self.last_action_forward = None
+			self.last_no_lidar_movement_action_left = None
 			self.left_prev = None
 			self.right_prev = None
 			self.scale = None
@@ -462,6 +464,7 @@ class Model:
 		self.user_var.difference = 0.0
 		self.user_var.desired_dist = 0.4
 		self.user_var.last_action_forward = False
+		self.user_var.last_no_lidar_movement_action_left = False
 		self.user_var.left_prev = 0.0
 		self.user_var.right_prev = 0.0
 		self.user_var.scale = 0.0
@@ -646,13 +649,11 @@ class Model:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________take_initial_yaw
 		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation:
 			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_navigation)\
-				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_navigation_r1timer)
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right)
 		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1entry:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1entry
 		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1fetch_current_cell:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1fetch_current_cell
-		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1hold_fetch:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1hold_fetch
 		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1done_:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1done_
 		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1turn_left:
@@ -669,8 +670,13 @@ class Model:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1forward
 		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1stop:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1stop
-		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1timer:
-			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1timer
+		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle:
+			return (self.__state_vector[0] >= self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle)\
+				and (self.__state_vector[0] <= self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right)
+		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left
+		if s == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right:
+			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right
 		if s == self.__State.main_region_robot_movement_control_state_________hold:
 			return self.__state_vector[0] == self.__State.main_region_robot_movement_control_state_________hold
 		if s == self.__State.main_region_robot_mforward:
@@ -914,6 +920,7 @@ class Model:
 		"""
 		#Entry action for state 'Stop'.
 		self.raise_stop()
+		self.user_var.acceleration_duration = 500
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_movement_auto_movement_base_state(self):
 		"""Entry action for state 'Base State'..
@@ -1090,7 +1097,7 @@ class Model:
 		"""
 		#Entry action for state 'WriteCellOnce'.
 		self.grid.orientation = self.__last_orientation
-		self.grid.wall_front = 1 if (self.laser_distance.dfront_mean < self.user_var.desired_dist) else 0
+		self.grid.wall_front = 1 if (self.laser_distance.dfront_mean < (self.user_var.desired_dist + 0.1)) else 0
 		self.grid.wall_right = 1 if (self.laser_distance.dright_mean < self.user_var.desired_dist) else 0
 		self.grid.wall_back = 1 if (self.laser_distance.dback_mean < self.user_var.desired_dist) else 0
 		self.grid.wall_left = 1 if (self.laser_distance.dleft_mean < self.user_var.desired_dist) else 0
@@ -1121,12 +1128,13 @@ class Model:
 		""".
 		"""
 		#Entry action for state 'Entry'.
-		self.__origin_x = self.odom.x
-		self.__origin_y = self.odom.y
 		self.__origin_set = True
 		self.grid.orientation = 0
 		self.grid.column = 0
 		self.grid.row = (self.grid.max_row - 1)
+		self.__last_col = -(1)
+		self.__last_row = -(1)
+		self.user_var.acceleration_duration = 2500
 		self.__completed = True
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_fetch_current_cell(self):
@@ -1135,67 +1143,45 @@ class Model:
 		#Entry action for state 'FetchCurrentCell'.
 		self.timer_service.set_timer(self, 8, 100, False)
 		self.grid.receive = True
-		self.internal_operation_callback.debug_real(100001)
-		self.internal_operation_callback.debug_real(self.grid.orientation)
-		self.internal_operation_callback.debug_real(self.grid.column)
-		self.internal_operation_callback.debug_real(self.grid.row)
-		self.internal_operation_callback.debug_real(11111)
-		self.internal_operation_callback.debug_real(self.grid.wall_front)
-		self.internal_operation_callback.debug_real(self.grid.wall_right)
-		self.internal_operation_callback.debug_real(self.grid.wall_back)
-		self.internal_operation_callback.debug_real(self.grid.wall_left)
-		
-	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch(self):
-		""".
-		"""
-		#Entry action for state 'HoldFetch'.
-		self.internal_operation_callback.debug_real(22222)
-		self.__completed = True
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_done_(self):
 		"""Entry action for state 'DONE!'..
 		"""
 		#Entry action for state 'DONE!'.
-		self.internal_operation_callback.debug()
-		self.internal_operation_callback.debug()
+		self.timer_service.set_timer(self, 9, (1 * 1000), False)
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_turn_left(self):
 		"""Entry action for state 'TurnLeft'..
 		"""
 		#Entry action for state 'TurnLeft'.
 		self.raise_rotate_left90()
-		self.internal_operation_callback.debug_real(1)
+		self.user_var.last_no_lidar_movement_action_left = True
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_calculate_location(self):
-		"""Entry action for state 'Calculate Location'..
+		""".
 		"""
 		#Entry action for state 'Calculate Location'.
-		self.timer_service.set_timer(self, 9, 1, False)
-		self.raise_forward()
-		self.__dx = ((self.__origin_y - self.odom.y))
-		self.__dy = ((self.odom.x - self.__origin_x))
-		self.__bx = 0.18 if (self.__dx >= 0.0) else -(0.18)
-		self.__by = 0.12 if (self.__dy >= 0.0) else -(0.12)
-		self.__tmp_col = self.internal_operation_callback.floor((((self.__dx + self.__bx)) / self.grid.grid_size))
-		self.__tmp_row = self.internal_operation_callback.floor((((self.__dy + self.__by)) / self.grid.grid_size))
-		self.__new_col = 0 if (self.__tmp_col < 0) else self.__tmp_col
-		self.__new_row = 0 if (self.__tmp_row < 0) else self.__tmp_row
-		self.__new_col = (self.grid.max_col - 1) if (self.__new_col >= self.grid.max_col) else self.__new_col
-		self.__new_row = (self.grid.max_row - 1) if (self.__new_row >= self.grid.max_row) else self.__new_row
+		self.raise_stop()
+		self.grid.row = ((self.grid.row - 1)) if (self.grid.orientation == 0) else self.grid.row
+		self.grid.row = ((self.grid.row + 1)) if (self.grid.orientation == 2) else self.grid.row
+		self.grid.column = ((self.grid.column + 1)) if (self.grid.orientation == 1) else self.grid.column
+		self.grid.column = ((self.grid.column - 1)) if (self.grid.orientation == 3) else self.grid.column
+		self.user_var.last_no_lidar_movement_action_left = False
+		self.__completed = True
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_turn_right(self):
 		"""Entry action for state 'TurnRight'..
 		"""
 		#Entry action for state 'TurnRight'.
 		self.raise_rotate_right90()
-		self.internal_operation_callback.debug_real(3)
+		self.user_var.last_no_lidar_movement_action_left = False
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_turn_around(self):
 		"""Entry action for state 'TurnAround'..
 		"""
 		#Entry action for state 'TurnAround'.
 		self.raise_rotate_right90()
-		self.internal_operation_callback.debug_real(4)
+		self.user_var.last_no_lidar_movement_action_left = False
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_do_it_again(self):
 		"""Entry action for state 'DoItAgain'..
@@ -1204,14 +1190,11 @@ class Model:
 		self.raise_rotate_right90()
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_forward(self):
-		""".
+		"""Entry action for state 'Forward'..
 		"""
 		#Entry action for state 'Forward'.
+		self.timer_service.set_timer(self, 10, 2500, False)
 		self.raise_forward()
-		self.__bx = ((self.__origin_y - self.odom.y))
-		self.__by = ((self.__origin_x - self.odom.x))
-		self.internal_operation_callback.debug_real(2)
-		self.__completed = True
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_stop(self):
 		""".
@@ -1220,14 +1203,19 @@ class Model:
 		self.raise_stop()
 		self.__last_col = self.__new_col
 		self.__last_row = self.__new_row
-		self.internal_operation_callback.debug()
 		self.__completed = True
 		
-	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_timer(self):
-		"""Entry action for state 'Timer'..
+	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left(self):
+		"""Entry action for state 'Rotate Left'..
 		"""
-		#Entry action for state 'Timer'.
-		self.timer_service.set_timer(self, 10, 100, False)
+		#Entry action for state 'Rotate Left'.
+		self.raise_rotate_left()
+		
+	def __entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right(self):
+		"""Entry action for state 'Rotate Right'..
+		"""
+		#Entry action for state 'Rotate Right'.
+		self.raise_rotate_left()
 		
 	def __entry_action_main_region_robot_m_forward(self):
 		"""Entry action for state 'Forward'..
@@ -1474,16 +1462,16 @@ class Model:
 		#Exit action for state 'FetchCurrentCell'.
 		self.timer_service.unset_timer(self, 8)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_calculate_location(self):
-		"""Exit action for state 'Calculate Location'..
+	def __exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_done_(self):
+		"""Exit action for state 'DONE!'..
 		"""
-		#Exit action for state 'Calculate Location'.
+		#Exit action for state 'DONE!'.
 		self.timer_service.unset_timer(self, 9)
 		
-	def __exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_timer(self):
-		"""Exit action for state 'Timer'..
+	def __exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_forward(self):
+		"""Exit action for state 'Forward'..
 		"""
-		#Exit action for state 'Timer'.
+		#Exit action for state 'Forward'.
 		self.timer_service.unset_timer(self, 10)
 		
 	def __exit_action_main_region_robot_m_forward(self):
@@ -1822,15 +1810,6 @@ class Model:
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch_default(self):
-		"""'default' enter sequence for state HoldFetch.
-		"""
-		#'default' enter sequence for state HoldFetch
-		self.__entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1hold_fetch
-		self.__state_conf_vector_position = 0
-		self.__state_conf_vector_changed = True
-		
 	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_done__default(self):
 		"""'default' enter sequence for state DONE!.
 		"""
@@ -1894,21 +1873,27 @@ class Model:
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_stop_default(self):
-		"""'default' enter sequence for state Stop.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_default(self):
+		"""'default' enter sequence for state Do a Wiggle.
 		"""
-		#'default' enter sequence for state Stop
-		self.__entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_stop()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1stop
+		#'default' enter sequence for state Do a Wiggle
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_default()
+		
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left_default(self):
+		"""'default' enter sequence for state Rotate Left.
+		"""
+		#'default' enter sequence for state Rotate Left
+		self.__entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
-	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_timer_default(self):
-		"""'default' enter sequence for state Timer.
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right_default(self):
+		"""'default' enter sequence for state Rotate Right.
 		"""
-		#'default' enter sequence for state Timer
-		self.__entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_timer()
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1timer
+		#'default' enter sequence for state Rotate Right
+		self.__entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right()
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right
 		self.__state_conf_vector_position = 0
 		self.__state_conf_vector_changed = True
 		
@@ -2201,6 +2186,12 @@ class Model:
 		#'default' enter sequence for region r1
 		self.__react_main_region_robot_movement_control_state__________auto_navigation_r1__entry_default()
 		
+	def __enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_default(self):
+		"""'default' enter sequence for region r1.
+		"""
+		#'default' enter sequence for region r1
+		self.__react_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1__entry_default()
+		
 	def __enter_sequence_main_region_robot_m_default(self):
 		"""'default' enter sequence for region m.
 		"""
@@ -2490,19 +2481,13 @@ class Model:
 		self.__state_conf_vector_position = 0
 		self.__exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_fetch_current_cell()
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch(self):
-		"""Default exit sequence for state HoldFetch.
-		"""
-		#Default exit sequence for state HoldFetch
-		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
-		self.__state_conf_vector_position = 0
-		
 	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_done_(self):
 		"""Default exit sequence for state DONE!.
 		"""
 		#Default exit sequence for state DONE!
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
 		self.__state_conf_vector_position = 0
+		self.__exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_done_()
 		
 	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_turn_left(self):
 		"""Default exit sequence for state TurnLeft.
@@ -2517,7 +2502,6 @@ class Model:
 		#Default exit sequence for state Calculate Location
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
 		self.__state_conf_vector_position = 0
-		self.__exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_calculate_location()
 		
 	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_turn_right(self):
 		"""Default exit sequence for state TurnRight.
@@ -2546,6 +2530,7 @@ class Model:
 		#Default exit sequence for state Forward
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
 		self.__state_conf_vector_position = 0
+		self.__exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_forward()
 		
 	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_stop(self):
 		"""Default exit sequence for state Stop.
@@ -2554,13 +2539,27 @@ class Model:
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
 		self.__state_conf_vector_position = 0
 		
-	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_timer(self):
-		"""Default exit sequence for state Timer.
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle(self):
+		"""Default exit sequence for state Do a Wiggle.
 		"""
-		#Default exit sequence for state Timer
+		#Default exit sequence for state Do a Wiggle
+		self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1()
 		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
 		self.__state_conf_vector_position = 0
-		self.__exit_action_main_region_robot_movement_control_state__________auto_navigation_r1_timer()
+		
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left(self):
+		"""Default exit sequence for state Rotate Left.
+		"""
+		#Default exit sequence for state Rotate Left
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle
+		self.__state_conf_vector_position = 0
+		
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right(self):
+		"""Default exit sequence for state Rotate Right.
+		"""
+		#Default exit sequence for state Rotate Right
+		self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle
+		self.__state_conf_vector_position = 0
 		
 	def __exit_sequence_main_region_robot_movement_control_state__________hold(self):
 		"""Default exit sequence for state Hold.
@@ -2834,8 +2833,6 @@ class Model:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_entry()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1fetch_current_cell:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_fetch_current_cell()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1hold_fetch:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1done_:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_done_()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1turn_left:
@@ -2852,8 +2849,12 @@ class Model:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_forward()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1stop:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_stop()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1timer:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_timer()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right()
 		elif state == self.State.main_region_robot_movement_control_state_________hold:
 			self.__exit_sequence_main_region_robot_movement_control_state__________hold()
 		state = self.__state_vector[1]
@@ -3083,8 +3084,6 @@ class Model:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_entry()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1fetch_current_cell:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_fetch_current_cell()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1hold_fetch:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1done_:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_done_()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1turn_left:
@@ -3101,8 +3100,22 @@ class Model:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_forward()
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1stop:
 			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_stop()
-		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1timer:
-			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_timer()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right()
+		
+	def __exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1(self):
+		"""Default exit sequence for region r1.
+		"""
+		#Default exit sequence for region r1
+		state = self.__state_vector[0]
+		if state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left()
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right:
+			self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right()
 		
 	def __exit_sequence_main_region_robot_m_rotate_90_degrees_inner_region(self):
 		"""Default exit sequence for region inner region.
@@ -3218,11 +3231,20 @@ class Model:
 		else:
 			self.__enter_sequence_main_region_robot_movement_control_state__________auto_movement_t_wall_tracking__cd__timer_default()
 		
+	def __react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_0(self):
+		"""The reactions of state null..
+		"""
+		#The reactions of state null.
+		if self.grid.column == self.__target_column and self.grid.row == self.__target_row:
+			self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_done__default()
+		else:
+			self.__react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_1()
+		
 	def __react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_1(self):
 		"""The reactions of state null..
 		"""
 		#The reactions of state null.
-		if self.grid.wall_left == 0:
+		if self.grid.wall_left == 0 and not self.user_var.last_no_lidar_movement_action_left:
 			self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_turn_left_default()
 		else:
 			self.__react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_2()
@@ -3244,15 +3266,6 @@ class Model:
 			self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_turn_right_default()
 		else:
 			self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_turn_around_default()
-		
-	def __react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_4(self):
-		"""The reactions of state null..
-		"""
-		#The reactions of state null.
-		if self.__new_col != self.__last_col or self.__new_row != self.__last_row:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_stop_default()
-		else:
-			self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_timer_default()
 		
 	def __react_main_region_robot_m_rotate_90_degrees_inner_region__choice_0(self):
 		"""The reactions of state null..
@@ -3360,6 +3373,12 @@ class Model:
 		"""
 		#Default react sequence for initial entry 
 		self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_entry_default()
+		
+	def __react_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1__entry_default(self):
+		"""Default react sequence for initial entry .
+		"""
+		#Default react sequence for initial entry 
+		self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left_default()
 		
 	def __react_main_region_robot_m__entry_default(self):
 		"""Default react sequence for initial entry .
@@ -4059,33 +4078,12 @@ class Model:
 				if self.__time_events[8]:
 					self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_fetch_current_cell()
 					self.__time_events[8] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch_default()
-					self.__main_region_robot_movement_control_state__________auto_navigation_react(0)
+					self.__react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_0()
 					transitioned_after = 0
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
 				transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
-		return transitioned_after
-	
-	
-	def __main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch_react function.
-		"""
-		#The reactions of state HoldFetch.
-		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state HoldFetch
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
-			self.__state_conf_vector_position = 0
-			#The reactions of state null.
-			if self.grid.column == self.__target_column and self.grid.row == self.__target_row:
-				self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_done__default()
-			else:
-				self.__react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_1()
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -4095,8 +4093,17 @@ class Model:
 		#The reactions of state DONE!.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
+			if transitioned_after < 0:
+				if self.__time_events[9]:
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_done_()
+					self.__time_events[9] = False
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_default()
+					self.__main_region_robot_movement_control_state__________auto_navigation_react(0)
+					transitioned_after = 0
+			#If no transition was taken
+			if transitioned_after == transitioned_before:
+				#then execute local reactions.
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -4124,17 +4131,19 @@ class Model:
 		"""
 		#The reactions of state Calculate Location.
 		transitioned_after = transitioned_before
-		if not self.__do_completion:
-			if transitioned_after < 0:
-				if self.__time_events[9]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_calculate_location()
-					self.__time_events[9] = False
-					self.__react_main_region_robot_movement_control_state__________auto_navigation_r1__choice_4()
-					transitioned_after = 0
-			#If no transition was taken
-			if transitioned_after == transitioned_before:
-				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
+		if self.__do_completion:
+			#Default exit sequence for state Calculate Location
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
+			self.__state_conf_vector_position = 0
+			#'default' enter sequence for state Stop
+			self.__entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_stop()
+			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1stop
+			self.__state_conf_vector_position = 0
+			self.__state_conf_vector_changed = True
+			self.__main_region_robot_movement_control_state__________auto_navigation_react(0)
+		else:
+			#Always execute local reactions.
+			transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -4200,19 +4209,18 @@ class Model:
 		"""
 		#The reactions of state Forward.
 		transitioned_after = transitioned_before
-		if self.__do_completion:
-			#Default exit sequence for state Forward
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation
-			self.__state_conf_vector_position = 0
-			#'default' enter sequence for state Calculate Location
-			self.__entry_action_main_region_robot_movement_control_state__________auto_navigation_r1_calculate_location()
-			self.__state_vector[0] = self.State.main_region_robot_movement_control_state_________auto_navigation_r1calculate_location
-			self.__state_conf_vector_position = 0
-			self.__state_conf_vector_changed = True
-			self.__main_region_robot_movement_control_state__________auto_navigation_react(0)
-		else:
-			#Always execute local reactions.
-			transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
+		if not self.__do_completion:
+			if transitioned_after < 0:
+				if self.__time_events[10]:
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_forward()
+					self.__time_events[10] = False
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_calculate_location_default()
+					self.__main_region_robot_movement_control_state__________auto_navigation_react(0)
+					transitioned_after = 0
+			#If no transition was taken
+			if transitioned_after == transitioned_before:
+				#then execute local reactions.
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -4237,23 +4245,52 @@ class Model:
 		return transitioned_after
 	
 	
-	def __main_region_robot_movement_control_state__________auto_navigation_r1_timer_react(self, transitioned_before):
-		"""Implementation of __main_region_robot_movement_control_state__________auto_navigation_r1_timer_react function.
+	def __main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_react function.
 		"""
-		#The reactions of state Timer.
+		#The reactions of state Do a Wiggle.
+		transitioned_after = transitioned_before
+		if not self.__do_completion:
+			#Always execute local reactions.
+			transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
+		return transitioned_after
+	
+	
+	def __main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left_react function.
+		"""
+		#The reactions of state Rotate Left.
 		transitioned_after = transitioned_before
 		if not self.__do_completion:
 			if transitioned_after < 0:
-				if self.__time_events[10]:
-					self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_timer()
-					self.__time_events[10] = False
-					self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_calculate_location_default()
-					self.__main_region_robot_movement_control_state__________auto_navigation_react(0)
+				if self.finished_rot_left:
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right_default()
+					self.__main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_react(0)
 					transitioned_after = 0
 			#If no transition was taken
 			if transitioned_after == transitioned_before:
 				#then execute local reactions.
-				transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_react(transitioned_before)
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_react(transitioned_before)
+		return transitioned_after
+	
+	
+	def __main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right_react(self, transitioned_before):
+		"""Implementation of __main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right_react function.
+		"""
+		#The reactions of state Rotate Right.
+		transitioned_after = transitioned_before
+		if not self.__do_completion:
+			if transitioned_after < 0:
+				if self.finished_rot_right:
+					self.__exit_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right()
+					self.__enter_sequence_main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left_default()
+					self.__main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_react(0)
+					transitioned_after = 0
+			#If no transition was taken
+			if transitioned_after == transitioned_before:
+				#then execute local reactions.
+				transitioned_after = self.__main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_react(transitioned_before)
 		return transitioned_after
 	
 	
@@ -4956,8 +4993,6 @@ class Model:
 			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_entry_react(transitioned)
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1fetch_current_cell:
 			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_fetch_current_cell_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1hold_fetch:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_hold_fetch_react(transitioned)
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1done_:
 			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_done__react(transitioned)
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1turn_left:
@@ -4974,8 +5009,10 @@ class Model:
 			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_forward_react(transitioned)
 		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1stop:
 			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_stop_react(transitioned)
-		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1timer:
-			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_timer_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_left:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_left_react(transitioned)
+		elif state == self.State.main_region_robot_movement_control_state_________auto_navigation_r1do_a_wiggle_r1rotate_right:
+			transitioned = self.__main_region_robot_movement_control_state__________auto_navigation_r1_do_a_wiggle_r1_rotate_right_react(transitioned)
 		elif state == self.State.main_region_robot_movement_control_state_________hold:
 			transitioned = self.__main_region_robot_movement_control_state__________hold_react(transitioned)
 		if self.__state_conf_vector_position < 1:
