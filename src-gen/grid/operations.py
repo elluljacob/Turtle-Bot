@@ -6,12 +6,3 @@ class Callback:
 
     def floor(self, val):
         return math.floor(val)
-    
-    def debug(self):
-        print('Operation debug has been called by the state machine')
-
-    def debug_real(self, val):
-        print('Operation debug has been called by the state machine: ' + str(val))
-
-    def abs_variable(self, val):
-        return abs(val)
