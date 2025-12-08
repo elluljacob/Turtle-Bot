@@ -890,8 +890,6 @@ class Model:
 		#Entry action for state 'Rotate Left 90'.
 		self.raise_stop()
 		self.raise_rotate_left90()
-		self.internal_operation_callback.debug_real(self.laser_distance.dleft_min)
-		self.internal_operation_callback.debug_real(self.laser_distance.dleft_mean)
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_turn_right_90(self):
 		"""Entry action for state 'Turn Right 90'..
@@ -929,8 +927,6 @@ class Model:
 		#Entry action for state 'Move Forward Slightly'.
 		self.raise_forward()
 		self.user_var.allow_calibration = False
-		self.internal_operation_callback.debug_real(self.laser_distance.dleft_min)
-		self.internal_operation_callback.debug_real(self.laser_distance.dleft_mean)
 		
 	def __entry_action_main_region_robot_movement_control_state__________auto_movement_x_comp_state_m2(self):
 		"""Entry action for state 'Comp State M2'..
@@ -1065,7 +1061,6 @@ class Model:
 		self.grid.wall_right = 1 if (self.laser_distance.dright_mean < self.user_var.desired_dist) else 0
 		self.grid.wall_back = 1 if (self.laser_distance.dback_mean < self.user_var.desired_dist) else 0
 		self.grid.wall_left = 1 if (self.laser_distance.dleft_mean < self.user_var.desired_dist) else 0
-		self.internal_operation_callback.debug_real(self.__last_orientation)
 		self.grid.update = True
 		self.__completed = True
 		
